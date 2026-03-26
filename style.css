@@ -355,3 +355,42 @@ padding-left: 20px;
 .nav-btn.prev { left: 10px; }
 .nav-btn.next { right: 10px; }
 .nav-btn:hover { background: rgba(0, 0, 0, 0.8); }
+
+/*小图轮播组件的调整*/
+.screenshot-wrapper.small {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden; /* track 滚动，不裁剪按钮 */
+  padding: 10px 0;
+}
+.screenshot-wrapper.small .screenshot-track img {
+  flex-shrink: 0;      /* 不缩小 */
+  width: auto;        /* 固定宽度，根据你原来的尺寸改 */
+  height: 500px;        /* 自动高度保持比例 */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.screenshot-wrapper.small .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.screenshot-wrapper.small .nav-btn.prev {
+  left: 0px; /* 完全在 track 外侧 */
+}
+
+.screenshot-wrapper.small .nav-btn.next {
+  right: 0px;
+}

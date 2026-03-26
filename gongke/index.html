@@ -1,413 +1,331 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GongKe Assistant – 功课助手</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
 
-  <body>
-    <!-- 语言切换 -->
-    <div style="text-align: right; padding: 20px 40px; font-size: 14px">
-      <a href="#" onclick="setLang('en')">EN</a> |
-      <a href="#" onclick="setLang('zh')">中文</a>
-    </div>
-    <script>
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GongKe Assistant – 功课助手</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
 
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          if (el.dataset.lang === lang) {
-            el.style.display = "block";
-          } else {
-            el.style.display = "none";
-          }
-        });
-      }
+<body>
+  <!-- 语言切换 -->
+  <div style="text-align: right; padding: 20px 40px; font-size: 14px">
+    <a href="#" onclick="setLang('en')">EN</a> |
+    <a href="#" onclick="setLang('zh')">中文</a>
+  </div>
+  <script>
+    function setLang(lang) {
+      localStorage.setItem("lang", lang);
 
-      function detectLang() {
-        let lang = localStorage.getItem("lang");
-
-        if (!lang) {
-          lang = navigator.language.startsWith("zh") ? "zh" : "en";
+      document.querySelectorAll("[data-lang]").forEach((el) => {
+        if (el.dataset.lang === lang) {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
         }
+      });
+    }
 
-        setLang(lang);
+    function detectLang() {
+      let lang = localStorage.getItem("lang");
+
+      if (!lang) {
+        lang = navigator.language.startsWith("zh") ? "zh" : "en";
       }
 
-      document.addEventListener("DOMContentLoaded", detectLang);
-    </script>
+      setLang(lang);
+    }
 
-    <div class="container">
-      <div class="hero">
-        <h1>GongKe Assistant</h1>
-        <p class="subtitle">
-           <div data-lang="zh">
-            佛友制定功课的小助手，以日历形式展示功课完成情况
-           </div>
-            <div data-lang="en">
-            A helper for Buddhists to plan and track daily practice
-           </div>
-        </p>
-        <a class="button" href="https://apps.apple.com/cn/app/%E5%8A%9F%E8%AF%BE%E5%8A%A9%E6%89%8B/id6639604349">
-          <div data-lang="zh">
-            在 App Store 下载
-           </div>
-            <div data-lang="en">
-            Download on the App Store
-           </div>
-        </a>
+    document.addEventListener("DOMContentLoaded", detectLang);
+  </script>
+
+  <div class="container">
+    <div class="hero">
+      <h1>GongKe Assistant</h1>
+      <p class="subtitle">
+      <div data-lang="zh">
+        佛友制定功课的小助手，以日历形式展示功课完成情况
+      </div>
+      <div data-lang="en">
+        A helper for Buddhists to plan and track daily practice
+      </div>
+      </p>
+      <a class="button" href="https://apps.apple.com/cn/app/%E5%8A%9F%E8%AF%BE%E5%8A%A9%E6%89%8B/id6639604349">
+        <div data-lang="zh">
+          在 App Store 下载
+        </div>
+        <div data-lang="en">
+          Download on the App Store
+        </div>
+      </a>
+    </div>
+
+    <!-- Screenshot Carousel -->
+    <div class="screenshot-section small">
+      <div data-lang="zh">
+        <h2>App 预览</h2>
+      </div>
+      <div data-lang="en">
+        <h2>App Preview</h2>
       </div>
 
-      <!-- Screenshot Carousel -->
-      <div class="screenshot-section">
-        
-          <div data-lang="zh">
-            <h2>App 预览</h2>
-           </div>
-            <div data-lang="en">
-            <h2>App Preview</h2>
-           </div>
-        <div class="screenshot-wrapper">
-          <button class="nav-btn prev">❮</button>
-          <button class="nav-btn next">❯</button>
+      <div class="screenshot-wrapper small">
+        <button class="nav-btn prev">&#10094;</button>
+        <button class="nav-btn next">&#10095;</button>
 
-          <div class="screenshot-track">
-            <div data-lang="en">
-            <img src="/images/GongKe.png" alt="GongKe Assistant Screenshot 1" />
-            </div>
-            <div data-lang="zh">
-            <img src="/images/GongKe.png" alt="功课助手截图 1" />
-            </div>
-            
-          </div>
+        <div class="screenshot-track small">
+          <img src="1.png" alt="Screenshot 1" />
+          <img src="2.png" alt="Screenshot 2" />
+          <img src="3.png" alt="Screenshot 3" />
+          <img src="4.png" alt="Screenshot 4" />
+          <img src="5.png" alt="Screenshot 5" />
+          <img src="6.png" alt="Screenshot 6" />
+          <img src="7.png" alt="Screenshot 7" />
         </div>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Key Features</h2>
-        <div class="features">
-          <div class="app-card">
-            <div data-lang="zh">
-             <h3>发愿向导</h3>
+    <div class="section">
+      <h2>Key Features</h2>
+      <div class="features">
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>发愿向导</h3>
             <p>按照向导建立发愿，对自己的修行功课做出规划</p>
-           </div>
-            <div data-lang="en">
-             <h3>Vow Guide</h3>
+          </div>
+          <div data-lang="en">
+            <h3>Vow Guide</h3>
             <p>Follow the guide to establish vows and plan your practice</p>
-           </div>
-           
           </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>日常功课设定</h3>
-              <p>
-                每天提醒佛友做功课，完整记录功课完成情况
-              </p>
-            </div>
-            <div data-lang="en">
-              <h3>Daily Practice Setup</h3>
-              <p>
-                Remind you to practice daily and record your progress completely
-              </p>
-            </div>
-            
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>日常功课设定</h3>
+            <p>
+              每天提醒佛友做功课，完整记录功课完成情况
+            </p>
+          </div>
+          <div data-lang="en">
+            <h3>Daily Practice Setup</h3>
+            <p>
+              Remind you to practice daily and record your progress completely
+            </p>
           </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>经书导入</h3>
-              <p>通过苹果手机的文件分享导入pdf经书，可供日常查看做功课</p>
-            </div>
-            <div data-lang="en">
-              <h3>Sutra Import</h3>
-              <p>Import PDF sutras via Apple's file sharing for daily study</p>
-            </div>
-          </div>
+        </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>功课统计</h3>
-              <p>可以通过功课统计页面查看过去一段时间的功课完成情况</p>
-            </div>
-            <div data-lang="en">
-              <h3>Practice Statistics</h3>
-              <p>View your practice completion status over a period of time</p>
-            </div>
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>经书导入</h3>
+            <p>通过苹果手机的文件分享导入pdf经书，可供日常查看做功课</p>
           </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>小组件显示</h3>
-              <p>可以在手机上以小组件形式显示当天功课，每日开示</p>
-            </div>
-            <div data-lang="en">
-              <h3>Widget Display</h3>
-              <p>Show daily practice and teachings as a widget on your device</p>
-            </div>
+          <div data-lang="en">
+            <h3>Sutra Import</h3>
+            <p>Import PDF sutras via Apple's file sharing for daily study</p>
           </div>
+        </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>拜忏</h3>
-              <p>可以自定义拜忏的数量、间隔时长、回向文等，根据自己的计划来设定合适的拜忏功课</p>
-            </div>
-            <div data-lang="en">
-              <h3>Repentance Practice</h3>
-              <p>Customize repentance practice with count, interval, and dedication text</p>
-            </div>
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>功课统计</h3>
+            <p>可以通过功课统计页面查看过去一段时间的功课完成情况</p>
+          </div>
+          <div data-lang="en">
+            <h3>Practice Statistics</h3>
+            <p>View your practice completion status over a period of time</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>小组件显示</h3>
+            <p>可以在手机上以小组件形式显示当天功课，每日开示</p>
+          </div>
+          <div data-lang="en">
+            <h3>Widget Display</h3>
+            <p>Show daily practice and teachings as a widget on your device</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>拜忏</h3>
+            <p>可以自定义拜忏的数量、间隔时长、回向文等，根据自己的计划来设定合适的拜忏功课</p>
+          </div>
+          <div data-lang="en">
+            <h3>Repentance Practice</h3>
+            <p>Customize repentance practice with count, interval, and dedication text</p>
           </div>
         </div>
       </div>
-      <section class="section help-section">
-        <h2 data-lang="zh">帮助与常见问题</h2>
-        <h2 data-lang="en">Help & FAQ</h2>
+    </div>
+    <section class="section help-section">
+      <h2 data-lang="zh">帮助与常见问题</h2>
+      <h2 data-lang="en">Help & FAQ</h2>
 
-        <div class="help-content">
-          <div data-lang="zh">
-            <h3>功课助手介绍</h3>
-            <div class="indent-text">
-              <p>功课助手 佛友制定功课的小助手，以日历形式展示功课完成情况</p>
-              <p>
-                如果您是一个在生活中忙忙碌碌希望能抽时间学佛的朋友，那么功课助手app可以帮助您。
-                功课助手主要是为坚持学习做功课的佛友提供一个管理、记录日常功课的工具。
-                它提供了发愿、日常功课完成、功课统计、诵经、诵咒计数、念佛计数、拜忏、打坐计时提醒等功能，方便在没有纸质经书的情况下完成佛学功课。
-              </p>
-              <p>国外的佛友建议下载“诵经助手”，额外提供听书功能。</p>
-            </div>
-
-            <h4>适合人群</h4>
-            <div class="indent-text">
-              <p>
-                希望坚持学佛修行的佛友，需要管理和记录日常功课的修行者
-              </p>
-            </div>
-
-            <h4>主要功能</h4>
-
-            <div class="indent-text">
-              <ul>
-                <li>发愿向导：按照向导建立发愿，对自己的修行功课做出规划</li>
-                <li>日常功课设定：每天提醒佛友做功课，完整记录功课完成情况</li>
-                <li>经书导入：通过苹果手机的文件分享导入pdf经书，可供日常查看做功课</li>
-                <li>功课统计：可以通过功课统计页面查看过去一段时间的功课完成情况</li>
-                <li>小组件显示：可以在手机上以小组件形式显示当天功课，每日开示</li>
-                <li>拜忏：可以自定义拜忏的数量、间隔时长、回向文等</li>
-              </ul>
-            </div>
-
-            <h3>常见问题</h3>
-
-            <h4>
-              1、如何导入PDF文件？
-            </h4>
-            <div class="indent-text">
-              <p>
-                通过苹果手机的文件分享功能导入PDF经书，可供日常查看做功课。
-                如果遇到导入问题，请联系开发者获取帮助。
-              </p>
-            </div>
-
-            <h4>2、国外用户推荐使用什么应用？</h4>
-            <div class="indent-text">
-              <p>
-                国外的佛友建议下载“诵经助手”，额外提供听书功能。
-              </p>
-            </div>
-
-            <h4>3、如何联系开发者？</h4>
-            <div class="indent-text">
-              <p>
-                您可以通过邮件联系开发者：yangxuehui@outlook.com
-                或在技术支持网站留言获取帮助。
-              </p>
-            </div>
+      <div class="help-content">
+        <div data-lang="zh">
+          <h3>功课助手介绍</h3>
+          <div class="indent-text">
+            <p>功课助手 佛友制定功课的小助手，以日历形式展示功课完成情况</p>
+            <p>
+              如果您是一个在生活中忙忙碌碌希望能抽时间学佛的朋友，那么功课助手app可以帮助您。
+              功课助手主要是为坚持学习做功课的佛友提供一个管理、记录日常功课的工具。
+              它提供了发愿、日常功课完成、功课统计、诵经、诵咒计数、念佛计数、拜忏、打坐计时提醒等功能，方便在没有纸质经书的情况下完成佛学功课。
+            </p>
+            <p>国外的佛友建议下载“诵经助手”，额外提供听书功能。</p>
           </div>
 
-          <div data-lang="en">
-            <h3>About GongKe Assistant</h3>
-            <div class="indent-text">
-              <p>GongKe Assistant - A helper for Buddhists to plan and track daily practice</p>
-              <p>
-                If you are a busy person who wants to find time to learn Buddhism, then GongKe Assistant app can help you.
-                GongKe Assistant is mainly a tool for Buddhists who persist in learning and doing practices to manage and record daily practices.
-                It provides functions such as vow making, daily practice completion, practice statistics, scripture recitation, mantra counting, Buddha name counting, repentance practice, and meditation timing reminders, making it convenient to complete Buddhist practices without paper scriptures.
-              </p>
-              <p>Overseas Buddhist friends are recommended to download "SongJing Assistant" which additionally provides audiobook functionality.</p>
-            </div>
+          <h4>适合人群</h4>
+          <div class="indent-text">
+            <p>
+              希望坚持学佛修行的佛友，需要管理和记录日常功课的修行者
+            </p>
+          </div>
 
-            <h4>Who Is It For</h4>
-            <div class="indent-text">
-              <p>
-                Buddhists who want to persist in Buddhist practice, practitioners who need to manage and record daily practices
-              </p>
-            </div>
+          <h4>主要功能</h4>
 
-            <h4>Main Features</h4>
+          <div class="indent-text">
+            <ul>
+              <li>发愿向导：按照向导建立发愿，对自己的修行功课做出规划</li>
+              <li>日常功课设定：每天提醒佛友做功课，完整记录功课完成情况</li>
+              <li>经书导入：通过苹果手机的文件分享导入pdf经书，可供日常查看做功课</li>
+              <li>功课统计：可以通过功课统计页面查看过去一段时间的功课完成情况</li>
+              <li>小组件显示：可以在手机上以小组件形式显示当天功课，每日开示</li>
+              <li>拜忏：可以自定义拜忏的数量、间隔时长、回向文等</li>
+            </ul>
+          </div>
 
-            <div class="indent-text">
-              <ul>
-                <li>Vow Guide: Follow the guide to establish vows and plan your practice</li>
-                <li>Daily Practice Setup: Remind you to practice daily and record your progress completely</li>
-                <li>Sutra Import: Import PDF sutras via Apple's file sharing for daily study</li>
-                <li>Practice Statistics: View your practice completion status over a period of time</li>
-                <li>Widget Display: Show daily practice and teachings as a widget on your device</li>
-                <li>Repentance Practice: Customize repentance practice with count, interval, and dedication text</li>
-              </ul>
-            </div>
+          <h3>常见问题</h3>
 
-            <h3>FAQ</h3>
+          <h4>
+            1、如何导入PDF文件？
+          </h4>
+          <div class="indent-text">
+            <p>
+              通过苹果手机的文件分享功能导入PDF经书，可供日常查看做功课。
+              如果遇到导入问题，请联系开发者获取帮助。
+            </p>
+          </div>
 
-            <h4>
-              1. How to import PDF files?
-            </h4>
-            <div class="indent-text">
-              <p>
-                Import PDF sutras via Apple's file sharing function for daily study.
-                If you encounter import issues, please contact the developer for assistance.
-              </p>
-            </div>
+          <h4>2、国外用户推荐使用什么应用？</h4>
+          <div class="indent-text">
+            <p>
+              国外的佛友建议下载“诵经助手”，额外提供听书功能。
+            </p>
+          </div>
 
-            <h4>2. What app is recommended for overseas users?</h4>
-            <div class="indent-text">
-              <p>
-                Overseas Buddhist friends are recommended to download "SongJing Assistant" which additionally provides audiobook functionality.
-              </p>
-            </div>
-
-            <h4>3. How to contact the developer?</h4>
-            <div class="indent-text">
-              <p>
-                You can contact the developer via email: yangxuehui@outlook.com
-                or leave a message on the technical support website for help.
-              </p>
-            </div>
+          <h4>3、如何联系开发者？</h4>
+          <div class="indent-text">
+            <p>
+              您可以通过邮件联系开发者：yangxuehui@outlook.com
+              或在技术支持网站留言获取帮助。
+            </p>
           </div>
         </div>
-      </section>
-      <div class="footer">© 2026 MichaelDev Studio</div>
-    </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-      const track = document.querySelector(".screenshot-track");
-      const nextBtn = document.querySelector(".next");
-      const prevBtn = document.querySelector(".prev");
+        <div data-lang="en">
+          <h3>About GongKe Assistant</h3>
+          <div class="indent-text">
+            <p>GongKe Assistant - A helper for Buddhists to plan and track daily practice</p>
+            <p>
+              If you are a busy person who wants to find time to learn Buddhism, then GongKe Assistant app can help you.
+              GongKe Assistant is mainly a tool for Buddhists who persist in learning and doing practices to manage and
+              record daily practices.
+              It provides functions such as vow making, daily practice completion, practice statistics, scripture
+              recitation, mantra counting, Buddha name counting, repentance practice, and meditation timing reminders,
+              making it convenient to complete Buddhist practices without paper scriptures.
+            </p>
+            <p>Overseas Buddhist friends are recommended to download "SongJing Assistant" which additionally provides
+              audiobook functionality.</p>
+          </div>
+
+          <h4>Who Is It For</h4>
+          <div class="indent-text">
+            <p>
+              Buddhists who want to persist in Buddhist practice, practitioners who need to manage and record daily
+              practices
+            </p>
+          </div>
+
+          <h4>Main Features</h4>
+
+          <div class="indent-text">
+            <ul>
+              <li>Vow Guide: Follow the guide to establish vows and plan your practice</li>
+              <li>Daily Practice Setup: Remind you to practice daily and record your progress completely</li>
+              <li>Sutra Import: Import PDF sutras via Apple's file sharing for daily study</li>
+              <li>Practice Statistics: View your practice completion status over a period of time</li>
+              <li>Widget Display: Show daily practice and teachings as a widget on your device</li>
+              <li>Repentance Practice: Customize repentance practice with count, interval, and dedication text</li>
+            </ul>
+          </div>
+
+          <h3>FAQ</h3>
+
+          <h4>
+            1. How to import PDF files?
+          </h4>
+          <div class="indent-text">
+            <p>
+              Import PDF sutras via Apple's file sharing function for daily study.
+              If you encounter import issues, please contact the developer for assistance.
+            </p>
+          </div>
+
+          <h4>2. What app is recommended for overseas users?</h4>
+          <div class="indent-text">
+            <p>
+              Overseas Buddhist friends are recommended to download "SongJing Assistant" which additionally provides
+              audiobook functionality.
+            </p>
+          </div>
+
+          <h4>3. How to contact the developer?</h4>
+          <div class="indent-text">
+            <p>
+              You can contact the developer via email: yangxuehui@outlook.com
+              or leave a message on the technical support website for help.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer">© 2026 MichaelDev Studio</div>
+  </div>
+
+  <script>
+    // ============================================
+    // 小图轮播：使用 scrollBy 横向滚动
+    // ============================================
+    document.addEventListener("DOMContentLoaded", () => {
+      const wrapper = document.querySelector('.screenshot-wrapper.small');
+      if (!wrapper) return;
       
-      let currentIndex = 0;
+      const track = wrapper.querySelector('.screenshot-track');
+      const prevBtn = wrapper.querySelector('.nav-btn.prev');
+      const nextBtn = wrapper.querySelector('.nav-btn.next');
+      
+      const gap = 20; // 图片间隔
 
-      // 获取当前可见的语言组及其内部的图片列表
-      function getCurrentGroupAndImages() {
-        // 找到 display 不是 'none' 的那个 div
-        const visibleGroup = Array.from(track.children).find(div => {
-          return window.getComputedStyle(div).display !== 'none';
-        });
-
-        if (!visibleGroup) return { group: null, images: [] };
-
-        const images = visibleGroup.querySelectorAll('img');
-        return { group: visibleGroup, images: images };
+      function getScrollAmount() {
+        const firstImg = track.querySelector('img');
+        if (!firstImg) return 0;
+        return firstImg.offsetWidth + gap;
       }
 
-      function updateSlide() {
-        const { group, images } = getCurrentGroupAndImages();
-        
-        if (!group || images.length === 0) return;
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      });
 
-        // 防止索引越界
-        if (currentIndex >= images.length) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-
-        // 移动当前的语言组，而不是整个 track
-        // 移动距离 = - (当前索引 * 100%)
-        group.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      // 绑定按钮事件
-      if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      // 【重要】监听语言切换事件，重置轮播索引
-      // 因为你的 setLang 函数在全局作用域，我们在这里做一个拦截或补充
-      const originalSetLang = window.setLang;
-      window.setLang = function(lang) {
-        // 先执行原有的语言切换逻辑 (隐藏/显示 div)
-        if (originalSetLang) originalSetLang(lang);
-        
-        // 延迟一点点执行，确保 DOM 的 display 属性已经更新
-        setTimeout(() => {
-          currentIndex = 0; // 切换语言后，从头开始播放
-          updateSlide();    // 应用变换
-        }, 50);
-      };
-
-      // 初始化：页面加载完成后执行一次
-      setTimeout(updateSlide, 100);
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      });
     });
-    </script>
-    <script>
-      // 更新页面显示语言
-      function updateLang(lang) {
-        // 切换显示内容
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          el.style.display =
-            el.getAttribute("data-lang") === lang ? "" : "none";
-        });
-        // 同步 html lang 属性（SEO + 浏览器翻译）
-        document.documentElement.lang = lang;
-      }
+  </script>
+</body>
 
-      // 用户点击切换语言
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
-        updateLang(lang);
-      }
-
-      // 自动检测语言
-      async function detectLang() {
-        const savedLang = localStorage.getItem("lang");
-        if (savedLang) {
-          updateLang(savedLang);
-          return;
-        }
-
-        try {
-          // 调用免费 IP API 获取国家信息
-          const res = await fetch("https://ipapi.co/json/");
-          const data = await res.json();
-
-          // 如果在中国显示中文，否则显示英文
-          const lang = data.country === "CN" ? "zh" : "en";
-
-          updateLang(lang);
-        } catch (err) {
-          // 出错默认英文
-          console.error("IP API 检测失败，默认英文", err);
-          updateLang("en");
-        }
-      }
-
-      // 页面加载立即检测
-      detectLang();
-    </script>
-  </body>
 </html>

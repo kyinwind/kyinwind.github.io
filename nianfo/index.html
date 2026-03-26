@@ -61,33 +61,27 @@
       </div>
 
       <!-- Screenshot Carousel -->
-      <div class="screenshot-section">
-        
-          <div data-lang="zh">
-            <h2>App 预览</h2>
-           </div>
-            <div data-lang="en">
-            <h2>App Preview</h2>
-           </div>
-        <div class="screenshot-wrapper" style="max-width: 30%;">
-          <button class="nav-btn prev">❮</button>
-          <button class="nav-btn next">❯</button>
+      <div class="screenshot-section small">
+      <div data-lang="zh">
+        <h2>App 预览</h2>
+      </div>
+      <div data-lang="en">
+        <h2>App Preview</h2>
+      </div>
 
-          <div class="screenshot-track">
-            <div data-lang="en">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/a2/4e/ce/a24ecee4-1e9a-d4f9-ecbb-60495361c72e/9c2e0ec6-a1d3-4df9-b324-5868662a91e8_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-06-06_at_22.54.17.png/392x696bb.png" alt="NianFo Assistant Screenshot 1" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/a8/c8/80/a8c8801a-7c55-dbed-a27d-80ad5634d348/7d718c04-ff59-4a14-b28b-ccafd5f20299_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-06-06_at_22.54.24.png/392x696bb.png" alt="NianFo Assistant Screenshot 2" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/51/bb/36/51bb3617-7ff3-54ed-aa34-1b95dfa761e4/e392e191-9c32-4d17-a701-2c5873e95cde_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-06-06_at_23.18.07.png/392x696bb.png" alt="NianFo Assistant Screenshot 3" />
-            </div>
-            <div data-lang="zh">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/a2/4e/ce/a24ecee4-1e9a-d4f9-ecbb-60495361c72e/9c2e0ec6-a1d3-4df9-b324-5868662a91e8_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-06-06_at_22.54.17.png/392x696bb.png" alt="念佛助手截图 1" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/a8/c8/80/a8c8801a-7c55-dbed-a27d-80ad5634d348/7d718c04-ff59-4a14-b28b-ccafd5f20299_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-06-06_at_22.54.24.png/392x696bb.png" alt="念佛助手截图 2" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource116/v4/51/bb/36/51bb3617-7ff3-54ed-aa34-1b95dfa761e4/e392e191-9c32-4d17-a701-2c5873e95cde_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-06-06_at_23.18.07.png/392x696bb.png" alt="念佛助手截图 3" />
-            </div>
-            
-          </div>
+      <div class="screenshot-wrapper small">
+        <button class="nav-btn prev">&#10094;</button>
+        <button class="nav-btn next">&#10095;</button>
+
+        <div class="screenshot-track small">
+          <img src="1.png" alt="Screenshot 1" />
+          <img src="2.png" alt="Screenshot 2" />
+          <img src="3.png" alt="Screenshot 3" />
+          <img src="4.png" alt="Screenshot 4" />
+          <img src="5.png" alt="Screenshot 5" />
         </div>
       </div>
+    </div>
 
       <div class="section">
         <h2>Key Features</h2>
@@ -299,123 +293,33 @@
     </div>
 
     <script>
+      // ============================================
+      // 小图轮播：使用 scrollBy 横向滚动
+      // ============================================
       document.addEventListener("DOMContentLoaded", () => {
-      const track = document.querySelector(".screenshot-track");
-      const nextBtn = document.querySelector(".next");
-      const prevBtn = document.querySelector(".prev");
-      
-      let currentIndex = 0;
-
-      // 获取当前可见的语言组及其内部的图片列表
-      function getCurrentGroupAndImages() {
-        // 找到 display 不是 'none' 的那个 div
-        const visibleGroup = Array.from(track.children).find(div => {
-          return window.getComputedStyle(div).display !== 'none';
-        });
-
-        if (!visibleGroup) return { group: null, images: [] };
-
-        const images = visibleGroup.querySelectorAll('img');
-        return { group: visibleGroup, images: images };
-      }
-
-      function updateSlide() {
-        const { group, images } = getCurrentGroupAndImages();
+        const wrapper = document.querySelector('.screenshot-wrapper.small');
+        if (!wrapper) return;
         
-        if (!group || images.length === 0) return;
-
-        // 防止索引越界
-        if (currentIndex >= images.length) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-
-        // 移动当前的语言组，而不是整个 track
-        // 移动距离 = - (当前索引 * 100%)
-        group.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      // 绑定按钮事件
-      if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      // 【重要】监听语言切换事件，重置轮播索引
-      // 因为你的 setLang 函数在全局作用域，我们在这里做一个拦截或补充
-      const originalSetLang = window.setLang;
-      window.setLang = function(lang) {
-        // 先执行原有的语言切换逻辑 (隐藏/显示 div)
-        if (originalSetLang) originalSetLang(lang);
+        const track = wrapper.querySelector('.screenshot-track');
+        const prevBtn = wrapper.querySelector('.nav-btn.prev');
+        const nextBtn = wrapper.querySelector('.nav-btn.next');
         
-        // 延迟一点点执行，确保 DOM 的 display 属性已经更新
-        setTimeout(() => {
-          currentIndex = 0; // 切换语言后，从头开始播放
-          updateSlide();    // 应用变换
-        }, 50);
-      };
+        const gap = 20; // 图片间隔
 
-      // 初始化：页面加载完成后执行一次
-      setTimeout(updateSlide, 100);
-    });
-    </script>
-    <script>
-      // 更新页面显示语言
-      function updateLang(lang) {
-        // 切换显示内容
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          el.style.display =
-            el.getAttribute("data-lang") === lang ? "" : "none";
-        });
-        // 同步 html lang 属性（SEO + 浏览器翻译）
-        document.documentElement.lang = lang;
-      }
-
-      // 用户点击切换语言
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
-        updateLang(lang);
-      }
-
-      // 自动检测语言
-      async function detectLang() {
-        const savedLang = localStorage.getItem("lang");
-        if (savedLang) {
-          updateLang(savedLang);
-          return;
+        function getScrollAmount() {
+          const firstImg = track.querySelector('img');
+          if (!firstImg) return 0;
+          return firstImg.offsetWidth + gap;
         }
 
-        try {
-          // 调用免费 IP API 获取国家信息
-          const res = await fetch("https://ipapi.co/json/");
-          const data = await res.json();
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
 
-          // 如果在中国显示中文，否则显示英文
-          const lang = data.country === "CN" ? "zh" : "en";
-
-          updateLang(lang);
-        } catch (err) {
-          // 出错默认英文
-          console.error("IP API 检测失败，默认英文", err);
-          updateLang("en");
-        }
-      }
-
-      // 页面加载立即检测
-      detectLang();
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+      });
     </script>
   </body>
 </html>

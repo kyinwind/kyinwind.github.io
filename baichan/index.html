@@ -1,421 +1,328 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BaiChan Assistant – 拜忏助手</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
 
-  <body>
-    <!-- 语言切换 -->
-    <div style="text-align: right; padding: 20px 40px; font-size: 14px">
-      <a href="#" onclick="setLang('en')">EN</a> |
-      <a href="#" onclick="setLang('zh')">中文</a>
-    </div>
-    <script>
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BaiChan Assistant – 拜忏助手</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
 
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          if (el.dataset.lang === lang) {
-            el.style.display = "block";
-          } else {
-            el.style.display = "none";
-          }
-        });
-      }
+<body>
+  <!-- 语言切换 -->
+  <div style="text-align: right; padding: 20px 40px; font-size: 14px">
+    <a href="#" onclick="setLang('en')">EN</a> |
+    <a href="#" onclick="setLang('zh')">中文</a>
+  </div>
+  <script>
+    function setLang(lang) {
+      localStorage.setItem("lang", lang);
 
-      function detectLang() {
-        let lang = localStorage.getItem("lang");
-
-        if (!lang) {
-          lang = navigator.language.startsWith("zh") ? "zh" : "en";
+      document.querySelectorAll("[data-lang]").forEach((el) => {
+        if (el.dataset.lang === lang) {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
         }
+      });
+    }
 
-        setLang(lang);
+    function detectLang() {
+      let lang = localStorage.getItem("lang");
+
+      if (!lang) {
+        lang = navigator.language.startsWith("zh") ? "zh" : "en";
       }
 
-      document.addEventListener("DOMContentLoaded", detectLang);
-    </script>
+      setLang(lang);
+    }
 
-    <div class="container">
-      <div class="hero">
-        <h1>BaiChan Assistant</h1>
-        <p class="subtitle">
-           <div data-lang="zh">
-            每日三省吾身
-           </div>
-            <div data-lang="en">
-            Daily self-reflection and repentance
-           </div>
-        </p>
-        <a class="button" href="https://apps.apple.com/app/6473900841">
-          <div data-lang="zh">
-            在 App Store 下载
-           </div>
-            <div data-lang="en">
-            Download on the App Store
-           </div>
-        </a>
+    document.addEventListener("DOMContentLoaded", detectLang);
+  </script>
+
+  <div class="container">
+    <div class="hero">
+      <h1>BaiChan Assistant</h1>
+      <p class="subtitle">
+      <div data-lang="zh">
+        每日三省吾身
+      </div>
+      <div data-lang="en">
+        Daily self-reflection and repentance
+      </div>
+      </p>
+      <a class="button" href="https://apps.apple.com/app/6473900841">
+        <div data-lang="zh">
+          在 App Store 下载
+        </div>
+        <div data-lang="en">
+          Download on the App Store
+        </div>
+      </a>
+    </div>
+
+    <!-- Screenshot Carousel -->
+    <div class="screenshot-section small">
+      <div data-lang="zh">
+        <h2>App 预览</h2>
+      </div>
+      <div data-lang="en">
+        <h2>App Preview</h2>
       </div>
 
-      <!-- Screenshot Carousel -->
-      <div class="screenshot-section">
-        
-          <div data-lang="zh">
-            <h2>App 预览</h2>
-           </div>
-            <div data-lang="en">
-            <h2>App Preview</h2>
-           </div>
-        <div class="screenshot-wrapper" style="max-width: 30%;">
-          <button class="nav-btn prev">❮</button>
-          <button class="nav-btn next">❯</button>
+      <div class="screenshot-wrapper small">
+        <button class="nav-btn prev">&#10094;</button>
+        <button class="nav-btn next">&#10095;</button>
 
-          <div class="screenshot-track">
-            <div data-lang="en">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/e4/e2/74/e4e27418-15c6-658b-dc1b-ff9917d19e03/8d889d25-0998-445e-8aee-40bcacf5d556_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-12-09_at_20.15.08.png/392x696bb.png" alt="BaiChan Assistant Screenshot 1" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/96/bf/c7/96bfc7ad-f74d-b10f-90b0-92a589458630/d35aaf77-47bc-41c2-b168-5781c1e329fc_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-12-09_at_20.15.13.png/392x696bb.png" alt="BaiChan Assistant Screenshot 2" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/45/07/c4/4507c4c0-7f52-3361-bef2-4f093a7b40ce/d46b729b-7203-4b75-b770-ca83e3d09183_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-12-09_at_20.15.27.png/392x696bb.png" alt="BaiChan Assistant Screenshot 3" />
-            </div>
-            <div data-lang="zh">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/e4/e2/74/e4e27418-15c6-658b-dc1b-ff9917d19e03/8d889d25-0998-445e-8aee-40bcacf5d556_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-12-09_at_20.15.08.png/392x696bb.png" alt="拜忏助手截图 1" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/96/bf/c7/96bfc7ad-f74d-b10f-90b0-92a589458630/d35aaf77-47bc-41c2-b168-5781c1e329fc_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-12-09_at_20.15.13.png/392x696bb.png" alt="拜忏助手截图 2" />
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/45/07/c4/4507c4c0-7f52-3361-bef2-4f093a7b40ce/d46b729b-7203-4b75-b770-ca83e3d09183_Simulator_Screenshot_-_iPhone_8_Plus_-_2023-12-09_at_20.15.27.png/392x696bb.png" alt="拜忏助手截图 3" />
-            </div>
-            
-          </div>
+        <div class="screenshot-track small">
+          <img src="1.png" alt="Screenshot 1" />
+          <img src="2.png" alt="Screenshot 2" />
         </div>
       </div>
+    </div>
 
-      <div class="section">
-        <h2>Key Features</h2>
-        <div class="features">
-          <div class="app-card">
-            <div data-lang="zh">
-             <h3>多种忏法</h3>
+    <div class="section">
+      <h2>Key Features</h2>
+      <div class="features">
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>多种忏法</h3>
             <p>提供拜八十八佛，地藏忏三种忏法</p>
-           </div>
-            <div data-lang="en">
-             <h3>Multiple Repentance Methods</h3>
+          </div>
+          <div data-lang="en">
+            <h3>Multiple Repentance Methods</h3>
             <p>Provide three repentance methods: 88 Buddhas Repentance and Ksitigarbha Repentance</p>
-           </div>
-           
           </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>拜忏音频播放</h3>
-              <p>
-                提供拜忏音频播放，帮助你更好地进行拜忏
-              </p>
-            </div>
-            <div data-lang="en">
-              <h3>Repentance Audio Playback</h3>
-              <p>
-                Provide repentance audio playback to help you better perform repentance
-              </p>
-            </div>
-            
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>拜忏音频播放</h3>
+            <p>
+              提供拜忏音频播放，帮助你更好地进行拜忏
+            </p>
+          </div>
+          <div data-lang="en">
+            <h3>Repentance Audio Playback</h3>
+            <p>
+              Provide repentance audio playback to help you better perform repentance
+            </p>
           </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>文字显示查看</h3>
-              <p>提供文字显示查看功能，方便你跟随拜忏</p>
-            </div>
-            <div data-lang="en">
-              <h3>Text Display</h3>
-              <p>Provide text display function for easy following during repentance</p>
-            </div>
-          </div>
+        </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>自动滚动文字</h3>
-              <p>音频播放时自动滚动到对应文字</p>
-            </div>
-            <div data-lang="en">
-              <h3>Auto-scrolling Text</h3>
-              <p>Text automatically scrolls to corresponding content during audio playback</p>
-            </div>
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>文字显示查看</h3>
+            <p>提供文字显示查看功能，方便你跟随拜忏</p>
           </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>多设备支持</h3>
-              <p>支持各种iPhone和iPad设备</p>
-            </div>
-            <div data-lang="en">
-              <h3>Multi-device Support</h3>
-              <p>Supports various iPhone and iPad devices</p>
-            </div>
+          <div data-lang="en">
+            <h3>Text Display</h3>
+            <p>Provide text display function for easy following during repentance</p>
           </div>
+        </div>
 
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>免费使用</h3>
-              <p>完全免费，无内购</p>
-            </div>
-            <div data-lang="en">
-              <h3>Free to Use</h3>
-              <p>Completely free, no in-app purchases</p>
-            </div>
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>自动滚动文字</h3>
+            <p>音频播放时自动滚动到对应文字</p>
+          </div>
+          <div data-lang="en">
+            <h3>Auto-scrolling Text</h3>
+            <p>Text automatically scrolls to corresponding content during audio playback</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>多设备支持</h3>
+            <p>支持各种iPhone和iPad设备</p>
+          </div>
+          <div data-lang="en">
+            <h3>Multi-device Support</h3>
+            <p>Supports various iPhone and iPad devices</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>免费使用</h3>
+            <p>完全免费，无内购</p>
+          </div>
+          <div data-lang="en">
+            <h3>Free to Use</h3>
+            <p>Completely free, no in-app purchases</p>
           </div>
         </div>
       </div>
-      <section class="section help-section">
-        <h2 data-lang="zh">帮助与常见问题</h2>
-        <h2 data-lang="en">Help & FAQ</h2>
+    </div>
+    <section class="section help-section">
+      <h2 data-lang="zh">帮助与常见问题</h2>
+      <h2 data-lang="en">Help & FAQ</h2>
 
-        <div class="help-content">
-          <div data-lang="zh">
-            <h3>拜忏助手介绍</h3>
-            <div class="indent-text">
-              <p>拜忏助手 - 每日三省吾身</p>
-              <p>
-                拜忏助手是一款专为佛友设计的拜忏工具，帮助你进行日常的忏悔和修行。
-                它提供了拜八十八佛，地藏忏三种忏法，以及拜忏音频播放和文字显示查看功能，
-                让你的拜忏修行更加专注和有效。
-              </p>
-              <p>版本：1.0.1</p>
-              <p>开发者：学辉 杨</p>
-            </div>
-
-            <h4>适合人群</h4>
-            <div class="indent-text">
-              <p>
-                佛友、修行者、希望通过拜忏来净化心灵的人士
-              </p>
-            </div>
-
-            <h4>主要功能</h4>
-
-            <div class="indent-text">
-              <ul>
-                <li>多种忏法：提供拜八十八佛，地藏忏三种忏法（后续根据需要再继续补充）</li>
-                <li>拜忏音频播放：提供拜忏音频播放，帮助你更好地进行拜忏</li>
-                <li>文字显示查看：提供文字显示查看功能，方便你跟随拜忏</li>
-                <li>自动滚动文字：音频播放时自动滚动到对应文字</li>
-                <li>多设备支持：支持各种iPhone和iPad设备</li>
-                <li>免费使用：完全免费，无内购</li>
-              </ul>
-            </div>
-
-            <h3>常见问题</h3>
-
-            <h4>
-              1、如何选择忏法？
-            </h4>
-            <div class="indent-text">
-              <p>
-                在应用中，你可以选择拜八十八佛，地藏忏等忏法，
-                根据自己的修行需求进行选择。
-              </p>
-            </div>
-
-            <h4>2、如何使用音频播放功能？</h4>
-            <div class="indent-text">
-              <p>
-                选择忏法后，点击播放按钮即可开始拜忏音频播放，
-                应用会自动滚动到对应的文字内容。
-              </p>
-            </div>
-
-            <h4>3、如何联系开发者？</h4>
-            <div class="indent-text">
-              <p>
-                您可以通过邮件联系开发者：yangxuehui@outlook.com
-                或在技术支持网站留言获取帮助。
-              </p>
-            </div>
+      <div class="help-content">
+        <div data-lang="zh">
+          <h3>拜忏助手介绍</h3>
+          <div class="indent-text">
+            <p>拜忏助手 - 每日三省吾身</p>
+            <p>
+              拜忏助手是一款专为佛友设计的拜忏工具，帮助你进行日常的忏悔和修行。
+              它提供了拜八十八佛，地藏忏三种忏法，以及拜忏音频播放和文字显示查看功能，
+              让你的拜忏修行更加专注和有效。
+            </p>
+            <p>版本：1.0.1</p>
+            <p>开发者：学辉 杨</p>
           </div>
 
-          <div data-lang="en">
-            <h3>About BaiChan Assistant</h3>
-            <div class="indent-text">
-              <p>BaiChan Assistant - Daily self-reflection and repentance</p>
-              <p>
-                BaiChan Assistant is a repentance tool designed specifically for Buddhists to help you perform daily repentance and practice.
-                It provides three repentance methods: 88 Buddhas Repentance and Ksitigarbha Repentance, as well as repentance audio playback and text display functions,
-                making your repentance practice more focused and effective.
-              </p>
-              <p>Version: 1.0.1</p>
-              <p>Developer: 学辉 杨</p>
-            </div>
+          <h4>适合人群</h4>
+          <div class="indent-text">
+            <p>
+              佛友、修行者、希望通过拜忏来净化心灵的人士
+            </p>
+          </div>
 
-            <h4>Who Is It For</h4>
-            <div class="indent-text">
-              <p>
-                Buddhists, practitioners, individuals who want to purify their minds through repentance
-              </p>
-            </div>
+          <h4>主要功能</h4>
 
-            <h4>Main Features</h4>
+          <div class="indent-text">
+            <ul>
+              <li>多种忏法：提供拜八十八佛，地藏忏三种忏法（后续根据需要再继续补充）</li>
+              <li>拜忏音频播放：提供拜忏音频播放，帮助你更好地进行拜忏</li>
+              <li>文字显示查看：提供文字显示查看功能，方便你跟随拜忏</li>
+              <li>自动滚动文字：音频播放时自动滚动到对应文字</li>
+              <li>多设备支持：支持各种iPhone和iPad设备</li>
+              <li>免费使用：完全免费，无内购</li>
+            </ul>
+          </div>
 
-            <div class="indent-text">
-              <ul>
-                <li>Multiple Repentance Methods: Provide three repentance methods: 88 Buddhas Repentance and Ksitigarbha Repentance (more will be added as needed)</li>
-                <li>Repentance Audio Playback: Provide repentance audio playback to help you better perform repentance</li>
-                <li>Text Display: Provide text display function for easy following during repentance</li>
-                <li>Auto-scrolling Text: Text automatically scrolls to corresponding content during audio playback</li>
-                <li>Multi-device Support: Supports various iPhone and iPad devices</li>
-                <li>Free to Use: Completely free, no in-app purchases</li>
-              </ul>
-            </div>
+          <h3>常见问题</h3>
 
-            <h3>FAQ</h3>
+          <h4>
+            1、如何选择忏法？
+          </h4>
+          <div class="indent-text">
+            <p>
+              在应用中，你可以选择拜八十八佛，地藏忏等忏法，
+              根据自己的修行需求进行选择。
+            </p>
+          </div>
 
-            <h4>
-              1. How to select repentance methods?
-            </h4>
-            <div class="indent-text">
-              <p>
-                In the app, you can select repentance methods such as 88 Buddhas Repentance and Ksitigarbha Repentance,
-                according to your practice needs.
-              </p>
-            </div>
+          <h4>2、如何使用音频播放功能？</h4>
+          <div class="indent-text">
+            <p>
+              选择忏法后，点击播放按钮即可开始拜忏音频播放，
+              应用会自动滚动到对应的文字内容。
+            </p>
+          </div>
 
-            <h4>2. How to use the audio playback function?</h4>
-            <div class="indent-text">
-              <p>
-                After selecting a repentance method, click the play button to start repentance audio playback,
-                and the app will automatically scroll to the corresponding text content.
-              </p>
-            </div>
-
-            <h4>3. How to contact the developer?</h4>
-            <div class="indent-text">
-              <p>
-                You can contact the developer via email: yangxuehui@outlook.com
-                or leave a message on the technical support website for help.
-              </p>
-            </div>
+          <h4>3、如何联系开发者？</h4>
+          <div class="indent-text">
+            <p>
+              您可以通过邮件联系开发者：yangxuehui@outlook.com
+              或在技术支持网站留言获取帮助。
+            </p>
           </div>
         </div>
-      </section>
-      <div class="footer">© 2026 MichaelDev Studio</div>
-    </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-      const track = document.querySelector(".screenshot-track");
-      const nextBtn = document.querySelector(".next");
-      const prevBtn = document.querySelector(".prev");
+        <div data-lang="en">
+          <h3>About BaiChan Assistant</h3>
+          <div class="indent-text">
+            <p>BaiChan Assistant - Daily self-reflection and repentance</p>
+            <p>
+              BaiChan Assistant is a repentance tool designed specifically for Buddhists to help you perform daily
+              repentance and practice.
+              It provides three repentance methods: 88 Buddhas Repentance and Ksitigarbha Repentance, as well as
+              repentance audio playback and text display functions,
+              making your repentance practice more focused and effective.
+            </p>
+            <p>Version: 1.0.1</p>
+            <p>Developer: 学辉 杨</p>
+          </div>
+
+          <h4>Who Is It For</h4>
+          <div class="indent-text">
+            <p>
+              Buddhists, practitioners, individuals who want to purify their minds through repentance
+            </p>
+          </div>
+
+          <h4>Main Features</h4>
+
+          <div class="indent-text">
+            <ul>
+              <li>Multiple Repentance Methods: Provide three repentance methods: 88 Buddhas Repentance and Ksitigarbha
+                Repentance (more will be added as needed)</li>
+              <li>Repentance Audio Playback: Provide repentance audio playback to help you better perform repentance
+              </li>
+              <li>Text Display: Provide text display function for easy following during repentance</li>
+              <li>Auto-scrolling Text: Text automatically scrolls to corresponding content during audio playback</li>
+              <li>Multi-device Support: Supports various iPhone and iPad devices</li>
+              <li>Free to Use: Completely free, no in-app purchases</li>
+            </ul>
+          </div>
+
+          <h3>FAQ</h3>
+
+          <h4>
+            1. How to select repentance methods?
+          </h4>
+          <div class="indent-text">
+            <p>
+              In the app, you can select repentance methods such as 88 Buddhas Repentance and Ksitigarbha Repentance,
+              according to your practice needs.
+            </p>
+          </div>
+
+          <h4>2. How to use the audio playback function?</h4>
+          <div class="indent-text">
+            <p>
+              After selecting a repentance method, click the play button to start repentance audio playback,
+              and the app will automatically scroll to the corresponding text content.
+            </p>
+          </div>
+
+          <h4>3. How to contact the developer?</h4>
+          <div class="indent-text">
+            <p>
+              You can contact the developer via email: yangxuehui@outlook.com
+              or leave a message on the technical support website for help.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer">© 2026 MichaelDev Studio</div>
+  </div>
+
+  <script>
+    // ============================================
+    // 小图轮播：使用 scrollBy 横向滚动
+    // ============================================
+    document.addEventListener("DOMContentLoaded", () => {
+      const wrapper = document.querySelector('.screenshot-wrapper.small');
+      if (!wrapper) return;
       
-      let currentIndex = 0;
+      const track = wrapper.querySelector('.screenshot-track');
+      const prevBtn = wrapper.querySelector('.nav-btn.prev');
+      const nextBtn = wrapper.querySelector('.nav-btn.next');
+      
+      const gap = 20; // 图片间隔
 
-      // 获取当前可见的语言组及其内部的图片列表
-      function getCurrentGroupAndImages() {
-        // 找到 display 不是 'none' 的那个 div
-        const visibleGroup = Array.from(track.children).find(div => {
-          return window.getComputedStyle(div).display !== 'none';
-        });
-
-        if (!visibleGroup) return { group: null, images: [] };
-
-        const images = visibleGroup.querySelectorAll('img');
-        return { group: visibleGroup, images: images };
+      function getScrollAmount() {
+        const firstImg = track.querySelector('img');
+        if (!firstImg) return 0;
+        return firstImg.offsetWidth + gap;
       }
 
-      function updateSlide() {
-        const { group, images } = getCurrentGroupAndImages();
-        
-        if (!group || images.length === 0) return;
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      });
 
-        // 防止索引越界
-        if (currentIndex >= images.length) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-
-        // 移动当前的语言组，而不是整个 track
-        // 移动距离 = - (当前索引 * 100%)
-        group.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      // 绑定按钮事件
-      if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      // 【重要】监听语言切换事件，重置轮播索引
-      // 因为你的 setLang 函数在全局作用域，我们在这里做一个拦截或补充
-      const originalSetLang = window.setLang;
-      window.setLang = function(lang) {
-        // 先执行原有的语言切换逻辑 (隐藏/显示 div)
-        if (originalSetLang) originalSetLang(lang);
-        
-        // 延迟一点点执行，确保 DOM 的 display 属性已经更新
-        setTimeout(() => {
-          currentIndex = 0; // 切换语言后，从头开始播放
-          updateSlide();    // 应用变换
-        }, 50);
-      };
-
-      // 初始化：页面加载完成后执行一次
-      setTimeout(updateSlide, 100);
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      });
     });
-    </script>
-    <script>
-      // 更新页面显示语言
-      function updateLang(lang) {
-        // 切换显示内容
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          el.style.display =
-            el.getAttribute("data-lang") === lang ? "" : "none";
-        });
-        // 同步 html lang 属性（SEO + 浏览器翻译）
-        document.documentElement.lang = lang;
-      }
+  </script>
+</body>
 
-      // 用户点击切换语言
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
-        updateLang(lang);
-      }
-
-      // 自动检测语言
-      async function detectLang() {
-        const savedLang = localStorage.getItem("lang");
-        if (savedLang) {
-          updateLang(savedLang);
-          return;
-        }
-
-        try {
-          // 调用免费 IP API 获取国家信息
-          const res = await fetch("https://ipapi.co/json/");
-          const data = await res.json();
-
-          // 如果在中国显示中文，否则显示英文
-          const lang = data.country === "CN" ? "zh" : "en";
-
-          updateLang(lang);
-        } catch (err) {
-          // 出错默认英文
-          console.error("IP API 检测失败，默认英文", err);
-          updateLang("en");
-        }
-      }
-
-      // 页面加载立即检测
-      detectLang();
-    </script>
-  </body>
 </html>
