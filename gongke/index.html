@@ -305,9 +305,11 @@
       const wrapper = document.querySelector('.screenshot-wrapper.small');
       if (!wrapper) return;
       
-      const track = wrapper.querySelector('.screenshot-track');
+      const track = wrapper.querySelector('.screenshot-track.small');
       const prevBtn = wrapper.querySelector('.nav-btn.prev');
       const nextBtn = wrapper.querySelector('.nav-btn.next');
+      
+      if (!track || !prevBtn || !nextBtn) return;
       
       const gap = 20; // 图片间隔
 
@@ -317,11 +319,13 @@
         return firstImg.offsetWidth + gap;
       }
 
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
       });
 
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
       });
     });

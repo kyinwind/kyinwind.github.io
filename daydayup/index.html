@@ -287,80 +287,6 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-      const track = document.querySelector(".screenshot-track");
-      const nextBtn = document.querySelector(".next");
-      const prevBtn = document.querySelector(".prev");
-      
-      let currentIndex = 0;
-
-      // 获取当前可见的语言组及其内部的图片列表
-      function getCurrentGroupAndImages() {
-        // 找到 display 不是 'none' 的那个 div
-        const visibleGroup = Array.from(track.children).find(div => {
-          return window.getComputedStyle(div).display !== 'none';
-        });
-
-        if (!visibleGroup) return { group: null, images: [] };
-
-        const images = visibleGroup.querySelectorAll('img');
-        return { group: visibleGroup, images: images };
-      }
-
-      function updateSlide() {
-        const { group, images } = getCurrentGroupAndImages();
-        
-        if (!group || images.length === 0) return;
-
-        // 防止索引越界
-        if (currentIndex >= images.length) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = images.length - 1;
-
-        // 移动当前的语言组，而不是整个 track
-        // 移动距离 = - (当前索引 * 100%)
-        group.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      // 绑定按钮事件
-      if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex + 1) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-          const { images } = getCurrentGroupAndImages();
-          if (images.length > 0) {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            updateSlide();
-          }
-        });
-      }
-
-      // 【重要】监听语言切换事件，重置轮播索引
-      // 因为你的 setLang 函数在全局作用域，我们在这里做一个拦截或补充
-      const originalSetLang = window.setLang;
-      window.setLang = function(lang) {
-        // 先执行原有的语言切换逻辑 (隐藏/显示 div)
-        if (originalSetLang) originalSetLang(lang);
-        
-        // 延迟一点点执行，确保 DOM 的 display 属性已经更新
-        setTimeout(() => {
-          currentIndex = 0; // 切换语言后，从头开始播放
-          updateSlide();    // 应用变换
-        }, 50);
-      };
-
-      // 初始化：页面加载完成后执行一次
-      setTimeout(updateSlide, 100);
-    });
-    </script>
-    <script>
       // 更新页面显示语言
       function updateLang(lang) {
         // 切换显示内容
@@ -404,6 +330,36 @@
 
       // 页面加载立即检测
       detectLang();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector('.screenshot-wrapper.small');
+        if (!wrapper) return;
+        
+        const track = wrapper.querySelector('.screenshot-track.small');
+        const prevBtn = wrapper.querySelector('.nav-btn.prev');
+        const nextBtn = wrapper.querySelector('.nav-btn.next');
+        
+        if (!track || !prevBtn || !nextBtn) return;
+        
+        const gap = 20; // 图片间隔
+
+        function getScrollAmount() {
+          const firstImg = track.querySelector('img');
+          if (!firstImg) return 0;
+          return firstImg.offsetWidth + gap;
+        }
+
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+      });
     </script>
   </body>
 </html>
