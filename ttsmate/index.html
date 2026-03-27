@@ -1,323 +1,340 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TTSMate – Text to Speech Assistant for macOS</title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
 
-  <body>
-    <!-- 语言切换 -->
-    <div style="text-align: right; padding: 20px 40px; font-size: 14px">
-      <a href="#" onclick="setLang('en')">EN</a> |
-      <a href="#" onclick="setLang('zh')">中文</a>
-    </div>
-    <script>
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TTSMate – Text to Speech Assistant for macOS</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
 
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          if (el.dataset.lang === lang) {
-            el.style.display = "block";
-          } else {
-            el.style.display = "none";
-          }
-        });
-      }
+<body>
+  <!-- 语言切换 -->
+  <div style="text-align: right; padding: 20px 40px; font-size: 14px">
+    <a href="#" onclick="setLang('en')">EN</a> |
+    <a href="#" onclick="setLang('zh')">中文</a>
+  </div>
+  <script>
+    function setLang(lang) {
+      localStorage.setItem("lang", lang);
 
-      function detectLang() {
-        let lang = localStorage.getItem("lang");
-
-        if (!lang) {
-          lang = navigator.language.startsWith("zh") ? "zh" : "en";
+      document.querySelectorAll("[data-lang]").forEach((el) => {
+        if (el.dataset.lang === lang) {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
         }
+      });
+    }
 
-        setLang(lang);
+    function detectLang() {
+      let lang = localStorage.getItem("lang");
+
+      if (!lang) {
+        lang = navigator.language.startsWith("zh") ? "zh" : "en";
       }
 
-      document.addEventListener("DOMContentLoaded", detectLang);
-    </script>
+      setLang(lang);
+    }
 
-    <div class="container">
-      <div class="hero">
-        <h1>TTSMate</h1>
-        <p class="subtitle">
-           <div data-lang="zh">
-            在 macOS 上即时文本转语音
-           </div>
-            <div data-lang="en">
-            Convert text to speech instantly on macOS
-           </div>
-        </p>
-        <a class="button" href="https://apps.apple.com/app/6752127439">
-          <div data-lang="zh">
-            在 Mac App Store 下载
-           </div>
-            <div data-lang="en">
-            Download on the Mac App Store
-           </div>
-        </a>
+    document.addEventListener("DOMContentLoaded", detectLang);
+  </script>
+
+  <div class="container">
+    <div class="hero">
+      <h1>TTSMate</h1>
+      <p class="subtitle">
+      <div data-lang="zh">
+        在 macOS 上即时文本转语音
       </div>
-
-      <!-- Screenshot Carousel -->
-      <div class="screenshot-section">
-        
-          <div data-lang="zh">
-            <h2>App 预览</h2>
-           </div>
-            <div data-lang="en">
-            <h2>App Preview</h2>
-           </div>
-        <div class="screenshot-wrapper">
-          <button class="nav-btn prev">❮</button>
-          <button class="nav-btn next">❯</button>
-
-          <div class="screenshot-track">
-            <div data-lang="en">
-            <img src="1.png" alt="TTSMate Screenshot 1" />
-            <img src="2.png" alt="TTSMate Screenshot 2" />
-            <img src="3.png" alt="TTSMate Screenshot 3" />
-            <img src="4.png" alt="TTSMate Screenshot 4" />
-            <img src="5.png" alt="TTSMate Screenshot 8" />
-            <img src="6.png" alt="TTSMate Screenshot 9" />
-            <img src="7.png" alt="TTSMate Screenshot 8" />
-            <img src="8.png" alt="TTSMate Screenshot 8" />
-            </div>
-            <div data-lang="zh">
-            <img src="1.png" alt="TTSMate Screenshot 1" />
-            <img src="2.png" alt="TTSMate Screenshot 2" />
-            <img src="3.png" alt="TTSMate Screenshot 3" />
-            <img src="4.png" alt="TTSMate Screenshot 4" />
-            <img src="5.png" alt="TTSMate Screenshot 8" />
-            <img src="6.png" alt="TTSMate Screenshot 9" />
-            <img src="7.png" alt="TTSMate Screenshot 8" />
-            <img src="8.png" alt="TTSMate Screenshot 8" />
-            </div>
-            
-          </div>
-        </div>
+      <div data-lang="en">
+        Convert text to speech instantly on macOS
       </div>
-
-      <div class="section">
-        <h2>Key Features</h2>
-        <div class="features">
-          <div class="app-card">
-            <div data-lang="zh">
-             <h3>批量转换电子书</h3>
-            <p>支持电子书、文档内容的批量语音转换</p>
-           </div>
-            <div data-lang="en">
-             <h3>Batch Convert E-books</h3>
-            <p>Support batch voice conversion of e-books and document content</p>
-           </div>
-           
-          </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>发音字典</h3>
-              <p>
-                支持对多音字、易错发音进行自定义修正，确保语音输出更符合日常使用习惯
-              </p>
-            </div>
-            <div data-lang="en">
-              <h3>Pronunciation Dictionary</h3>
-              <p>
-                Support custom correction of polyphonic characters and error-prone pronunciations to ensure voice output better matches daily usage habits
-              </p>
-            </div>
-            
-          </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>双人对话模式</h3>
-              <p>支持双人对话语音模式，适用于对话类内容朗读</p>
-            </div>
-            <div data-lang="en">
-              <h3>Two-person Dialogue Mode</h3>
-              <p>Support two-person dialogue voice mode, suitable for reading dialogue content</p>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>TTS引擎支持</h3>
-              <p>支持mac本地TTS引擎或第三方TTS引擎进行语音合成</p>
-            </div>
-            <div data-lang="en">
-              <h3>TTS Engine Support</h3>
-              <p>Support mac local TTS engine or third-party TTS engine for voice synthesis</p>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>导出功能</h3>
-              <p>支持生成语音文件并导出保存到本地设备</p>
-            </div>
-            <div data-lang="en">
-              <h3>Export Functionality</h3>
-              <p>Support generating voice files and exporting them to local devices</p>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div data-lang="zh">
-              <h3>隐私保护</h3>
-              <p>严格保护用户隐私，不收集、存储或上传任何可用于识别用户身份的个人信息</p>
-            </div>
-            <div data-lang="en">
-              <h3>Privacy Protection</h3>
-              <p>Strictly protect user privacy, not collecting, storing or uploading any personal information that can be used to identify users</p>
-            </div>
-          </div>
+      </p>
+      <a class="button" href="https://apps.apple.com/app/6752127439">
+        <div data-lang="zh">
+          在 Mac App Store 下载
         </div>
-      </div>
-      <section class="section help-section">
-        <h2 data-lang="zh">帮助与常见问题</h2>
-        <h2 data-lang="en">Help & FAQ</h2>
-
-        <div class="help-content">
-          <div data-lang="zh">
-            <h3>TTSMate介绍</h3>
-            <div class="indent-text">
-              <p>TTSMate - 在 macOS 上即时文本转语音</p>
-              <p>
-                TTS Mate 帮助您将大量文本高效转换为语音文件，通过自动化处理流程，避免重复、繁琐的人工操作。
-                主要功能包括：支持电子书、文档内容的批量语音转换；支持自定义发音替换字典，修正多音字和易错发音；
-                支持双人对话语音模式，适用于对话类内容朗读；支持mac本地TTS引擎或第三方TTS引擎进行语音合成；
-                支持生成语音文件并导出保存到本地设备。
-              </p>
-              <p>版本：1.1.1</p>
-              <p>开发者：学辉 杨</p>
-            </div>
-
-            <h4>适合人群</h4>
-            <div class="indent-text">
-              <p>
-                经常将文章、电子书内容转换为语音文件进行收听或分享的人士；
-                需要批量生成语音内容用于学习、朗读或内容创作的人士；
-                希望减少重复段落复制粘贴等机械操作的人士。
-              </p>
-            </div>
-
-            <h4>主要功能</h4>
-
-            <div class="indent-text">
-              <ul>
-                <li>批量转换电子书：只需使用 Word 等编辑工具整理文本结构，例如将一级标题作为章节名称、正文作为章节内容，应用即可自动识别章节并批量生成对应的语音文件。</li>
-                <li>发音字典：支持对多音字、易错发音进行自定义修正，确保语音输出更符合日常使用习惯。</li>
-                <li>双人对话模式：通过预设对话规则，将文本按对话形式分割，并自动匹配 A / B 两种音色生成语音，适用于对话内容朗读场景。</li>
-                <li>TTS 引擎支持：目前支持mac本地TTS引擎和AzureTTS引擎，并将根据用户反馈逐步增加更多引擎选择。</li>
-                <li>导出功能：支持生成语音文件并导出保存到本地设备。</li>
-                <li>隐私保护：严格保护用户隐私，不收集、存储或上传任何可用于识别用户身份的个人信息。</li>
-              </ul>
-            </div>
-
-            <h3>常见问题</h3>
-
-            <h4>
-              1、如何批量转换电子书？
-            </h4>
-            <div class="indent-text">
-              <p>
-                使用 Word 等编辑工具整理文本结构，例如将一级标题作为章节名称、正文作为章节内容，
-                应用即可自动识别章节并批量生成对应的语音文件。
-              </p>
-            </div>
-
-            <h4>2、如何使用发音字典？</h4>
-            <div class="indent-text">
-              <p>
-                在应用中，您可以对多音字、易错发音进行自定义修正，确保语音输出更符合日常使用习惯。
-              </p>
-            </div>
-
-            <h4>3、如何使用双人对话模式？</h4>
-            <div class="indent-text">
-              <p>
-                通过预设对话规则，将文本按对话形式分割，并自动匹配 A / B 两种音色生成语音，
-                适用于对话内容朗读场景。
-              </p>
-            </div>
-          </div>
-
-          <div data-lang="en">
-            <h3>About TTSMate</h3>
-            <div class="indent-text">
-              <p>TTSMate - Convert text to speech instantly on macOS</p>
-              <p>
-                TTS Mate helps you efficiently convert large amounts of text into voice files through automated processing, avoiding repetitive and tedious manual operations.
-                Main features include: supporting batch voice conversion of e-books and document content; supporting custom pronunciation replacement dictionary to correct polyphonic characters and error-prone pronunciations;
-                supporting two-person dialogue voice mode, suitable for reading dialogue content; supporting mac local TTS engine or third-party TTS engine for voice synthesis;
-                supporting generating voice files and exporting them to local devices.
-              </p>
-              <p>Version: 1.1.1</p>
-              <p>Developer: 学辉 杨</p>
-            </div>
-
-            <h4>Who Is It For</h4>
-            <div class="indent-text">
-              <p>
-                People who often convert articles and e-book content into voice files for listening or sharing;
-                People who need to batch generate voice content for learning, reading or content creation;
-                People who want to reduce mechanical operations such as repeated paragraph copying and pasting.
-              </p>
-            </div>
-
-            <h4>Main Features</h4>
-
-            <div class="indent-text">
-              <ul>
-                <li>Batch Convert E-books: Just use editing tools like Word to organize text structure, such as using first-level headings as chapter names and body text as chapter content, and the app will automatically identify chapters and batch generate corresponding voice files.</li>
-                <li>Pronunciation Dictionary: Support custom correction of polyphonic characters and error-prone pronunciations to ensure voice output better matches daily usage habits.</li>
-                <li>Two-person Dialogue Mode: Through preset dialogue rules, split text into dialogue form and automatically match A/B two tones to generate voice, suitable for dialogue content reading scenarios.</li>
-                <li>TTS Engine Support: Currently supports mac local TTS engine and AzureTTS engine, and will gradually add more engine options based on user feedback.</li>
-                <li>Export Functionality: Support generating voice files and exporting them to local devices.</li>
-                <li>Privacy Protection: Strictly protect user privacy, not collecting, storing or uploading any personal information that can be used to identify users.</li>
-              </ul>
-            </div>
-
-            <h3>FAQ</h3>
-
-            <h4>
-              1. How to batch convert e-books?
-            </h4>
-            <div class="indent-text">
-              <p>
-                Use editing tools like Word to organize text structure, such as using first-level headings as chapter names and body text as chapter content,
-                and the app will automatically identify chapters and batch generate corresponding voice files.
-              </p>
-            </div>
-
-            <h4>2. How to use the pronunciation dictionary?</h4>
-            <div class="indent-text">
-              <p>
-                In the app, you can make custom corrections for polyphonic characters and error-prone pronunciations to ensure that the voice output better matches daily usage habits.
-              </p>
-            </div>
-
-            <h4>3. How to use two-person dialogue mode?</h4>
-            <div class="indent-text">
-              <p>
-                Through preset dialogue rules, split text into dialogue form and automatically match A/B two tones to generate voice,
-                suitable for dialogue content reading scenarios.
-              </p>
-            </div>
-          </div>
+        <div data-lang="en">
+          Download on the Mac App Store
         </div>
-      </section>
-      <div class="footer">© 2026 MichaelDev Studio</div>
+      </a>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
+    <!-- Screenshot Carousel -->
+    <div class="screenshot-section">
+
+      <div data-lang="zh">
+        <h2>App 预览</h2>
+      </div>
+      <div data-lang="en">
+        <h2>App Preview</h2>
+      </div>
+      <div class="screenshot-wrapper">
+        <button class="nav-btn prev">❮</button>
+        <button class="nav-btn next">❯</button>
+
+        <div class="screenshot-track">
+          <div data-lang="en">
+            <img src="1.png" alt="TTSMate Screenshot 1" />
+            <img src="2.png" alt="TTSMate Screenshot 2" />
+            <img src="3.png" alt="TTSMate Screenshot 3" />
+            <img src="4.png" alt="TTSMate Screenshot 4" />
+            <img src="5.png" alt="TTSMate Screenshot 8" />
+            <img src="6.png" alt="TTSMate Screenshot 9" />
+            <img src="7.png" alt="TTSMate Screenshot 8" />
+            <img src="8.png" alt="TTSMate Screenshot 8" />
+          </div>
+          <div data-lang="zh">
+            <img src="1.png" alt="TTSMate Screenshot 1" />
+            <img src="2.png" alt="TTSMate Screenshot 2" />
+            <img src="3.png" alt="TTSMate Screenshot 3" />
+            <img src="4.png" alt="TTSMate Screenshot 4" />
+            <img src="5.png" alt="TTSMate Screenshot 8" />
+            <img src="6.png" alt="TTSMate Screenshot 9" />
+            <img src="7.png" alt="TTSMate Screenshot 8" />
+            <img src="8.png" alt="TTSMate Screenshot 8" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key Features</h2>
+      <div class="features">
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>批量转换电子书</h3>
+            <p>支持电子书、文档内容的批量语音转换</p>
+          </div>
+          <div data-lang="en">
+            <h3>Batch Convert E-books</h3>
+            <p>Support batch voice conversion of e-books and document content</p>
+          </div>
+
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>发音字典</h3>
+            <p>
+              支持对多音字、易错发音进行自定义修正，确保语音输出更符合日常使用习惯
+            </p>
+          </div>
+          <div data-lang="en">
+            <h3>Pronunciation Dictionary</h3>
+            <p>
+              Support custom correction of polyphonic characters and error-prone pronunciations to ensure voice output
+              better matches daily usage habits
+            </p>
+          </div>
+
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>双人对话模式</h3>
+            <p>支持双人对话语音模式，适用于对话类内容朗读</p>
+          </div>
+          <div data-lang="en">
+            <h3>Two-person Dialogue Mode</h3>
+            <p>Support two-person dialogue voice mode, suitable for reading dialogue content</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>TTS引擎支持</h3>
+            <p>支持mac本地TTS引擎或第三方TTS引擎进行语音合成</p>
+          </div>
+          <div data-lang="en">
+            <h3>TTS Engine Support</h3>
+            <p>Support mac local TTS engine or third-party TTS engine for voice synthesis</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>导出功能</h3>
+            <p>支持生成语音文件并导出保存到本地设备</p>
+          </div>
+          <div data-lang="en">
+            <h3>Export Functionality</h3>
+            <p>Support generating voice files and exporting them to local devices</p>
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div data-lang="zh">
+            <h3>隐私保护</h3>
+            <p>严格保护用户隐私，不收集、存储或上传任何可用于识别用户身份的个人信息</p>
+          </div>
+          <div data-lang="en">
+            <h3>Privacy Protection</h3>
+            <p>Strictly protect user privacy, not collecting, storing or uploading any personal information that can be
+              used to identify users</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="section help-section">
+      <h2 data-lang="zh">帮助与常见问题</h2>
+      <h2 data-lang="en">Help & FAQ</h2>
+
+      <div class="help-content">
+        <div data-lang="zh">
+          <h3>TTSMate介绍</h3>
+          <div class="indent-text">
+            <p>TTSMate - 在 macOS 上即时文本转语音</p>
+            <p>
+              TTS Mate 帮助您将大量文本高效转换为语音文件，通过自动化处理流程，避免重复、繁琐的人工操作。
+              主要功能包括：支持电子书、文档内容的批量语音转换；支持自定义发音替换字典，修正多音字和易错发音；
+              支持双人对话语音模式，适用于对话类内容朗读；支持mac本地TTS引擎或第三方TTS引擎进行语音合成；
+              支持生成语音文件并导出保存到本地设备。
+            </p>
+            <p>版本：1.1.1</p>
+            <p>开发者：学辉 杨</p>
+          </div>
+
+          <h4>适合人群</h4>
+          <div class="indent-text">
+            <p>
+              经常将文章、电子书内容转换为语音文件进行收听或分享的人士；
+              需要批量生成语音内容用于学习、朗读或内容创作的人士；
+              希望减少重复段落复制粘贴等机械操作的人士。
+            </p>
+          </div>
+
+          <h4>主要功能</h4>
+
+          <div class="indent-text">
+            <ul>
+              <li>批量转换电子书：只需使用 Word 等编辑工具整理文本结构，例如将一级标题作为章节名称、正文作为章节内容，应用即可自动识别章节并批量生成对应的语音文件。</li>
+              <li>发音字典：支持对多音字、易错发音进行自定义修正，确保语音输出更符合日常使用习惯。</li>
+              <li>双人对话模式：通过预设对话规则，将文本按对话形式分割，并自动匹配 A / B 两种音色生成语音，适用于对话内容朗读场景。</li>
+              <li>TTS 引擎支持：目前支持mac本地TTS引擎和AzureTTS引擎，并将根据用户反馈逐步增加更多引擎选择。</li>
+              <li>导出功能：支持生成语音文件并导出保存到本地设备。</li>
+              <li>隐私保护：严格保护用户隐私，不收集、存储或上传任何可用于识别用户身份的个人信息。</li>
+            </ul>
+          </div>
+
+          <h3>常见问题</h3>
+
+          <h4>
+            1、如何批量转换电子书？
+          </h4>
+          <div class="indent-text">
+            <p>
+              使用 Word 等编辑工具整理文本结构，例如将一级标题作为章节名称、正文作为章节内容，
+              应用即可自动识别章节并批量生成对应的语音文件。
+            </p>
+          </div>
+
+          <h4>2、如何使用发音字典？</h4>
+          <div class="indent-text">
+            <p>
+              在应用中，您可以对多音字、易错发音进行自定义修正，确保语音输出更符合日常使用习惯。
+            </p>
+          </div>
+
+          <h4>3、如何使用双人对话模式？</h4>
+          <div class="indent-text">
+            <p>
+              通过预设对话规则，将文本按对话形式分割，并自动匹配 A / B 两种音色生成语音，
+              适用于对话内容朗读场景。
+            </p>
+          </div>
+        </div>
+
+        <div data-lang="en">
+          <h3>About TTSMate</h3>
+          <div class="indent-text">
+            <p>TTSMate - Convert text to speech instantly on macOS</p>
+            <p>
+              TTS Mate helps you efficiently convert large amounts of text into voice files through automated
+              processing, avoiding repetitive and tedious manual operations.
+              Main features include: supporting batch voice conversion of e-books and document content; supporting
+              custom pronunciation replacement dictionary to correct polyphonic characters and error-prone
+              pronunciations;
+              supporting two-person dialogue voice mode, suitable for reading dialogue content; supporting mac local TTS
+              engine or third-party TTS engine for voice synthesis;
+              supporting generating voice files and exporting them to local devices.
+            </p>
+            <p>Version: 1.1.1</p>
+            <p>Developer: 学辉 杨</p>
+          </div>
+
+          <h4>Who Is It For</h4>
+          <div class="indent-text">
+            <p>
+              People who often convert articles and e-book content into voice files for listening or sharing;
+              People who need to batch generate voice content for learning, reading or content creation;
+              People who want to reduce mechanical operations such as repeated paragraph copying and pasting.
+            </p>
+          </div>
+
+          <h4>Main Features</h4>
+
+          <div class="indent-text">
+            <ul>
+              <li>Batch Convert E-books: Just use editing tools like Word to organize text structure, such as using
+                first-level headings as chapter names and body text as chapter content, and the app will automatically
+                identify chapters and batch generate corresponding voice files.</li>
+              <li>Pronunciation Dictionary: Support custom correction of polyphonic characters and error-prone
+                pronunciations to ensure voice output better matches daily usage habits.</li>
+              <li>Two-person Dialogue Mode: Through preset dialogue rules, split text into dialogue form and
+                automatically match A/B two tones to generate voice, suitable for dialogue content reading scenarios.
+              </li>
+              <li>TTS Engine Support: Currently supports mac local TTS engine and AzureTTS engine, and will gradually
+                add more engine options based on user feedback.</li>
+              <li>Export Functionality: Support generating voice files and exporting them to local devices.</li>
+              <li>Privacy Protection: Strictly protect user privacy, not collecting, storing or uploading any personal
+                information that can be used to identify users.</li>
+            </ul>
+          </div>
+
+          <h3>FAQ</h3>
+
+          <h4>
+            1. How to batch convert e-books?
+          </h4>
+          <div class="indent-text">
+            <p>
+              Use editing tools like Word to organize text structure, such as using first-level headings as chapter
+              names and body text as chapter content,
+              and the app will automatically identify chapters and batch generate corresponding voice files.
+            </p>
+          </div>
+
+          <h4>2. How to use the pronunciation dictionary?</h4>
+          <div class="indent-text">
+            <p>
+              In the app, you can make custom corrections for polyphonic characters and error-prone pronunciations to
+              ensure that the voice output better matches daily usage habits.
+            </p>
+          </div>
+
+          <h4>3. How to use two-person dialogue mode?</h4>
+          <div class="indent-text">
+            <p>
+              Through preset dialogue rules, split text into dialogue form and automatically match A/B two tones to
+              generate voice,
+              suitable for dialogue content reading scenarios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="footer">© 2026 MichaelDev Studio</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
       const track = document.querySelector(".screenshot-track");
       const nextBtn = document.querySelector(".next");
       const prevBtn = document.querySelector(".prev");
-      
+
       let currentIndex = 0;
 
       // 获取当前可见的语言组及其内部的图片列表
@@ -335,7 +352,7 @@
 
       function updateSlide() {
         const { group, images } = getCurrentGroupAndImages();
-        
+
         if (!group || images.length === 0) return;
 
         // 防止索引越界
@@ -371,10 +388,10 @@
       // 【重要】监听语言切换事件，重置轮播索引
       // 因为你的 setLang 函数在全局作用域，我们在这里做一个拦截或补充
       const originalSetLang = window.setLang;
-      window.setLang = function(lang) {
+      window.setLang = function (lang) {
         // 先执行原有的语言切换逻辑 (隐藏/显示 div)
         if (originalSetLang) originalSetLang(lang);
-        
+
         // 延迟一点点执行，确保 DOM 的 display 属性已经更新
         setTimeout(() => {
           currentIndex = 0; // 切换语言后，从头开始播放
@@ -385,51 +402,52 @@
       // 初始化：页面加载完成后执行一次
       setTimeout(updateSlide, 100);
     });
-    </script>
-    <script>
-      // 更新页面显示语言
-      function updateLang(lang) {
-        // 切换显示内容
-        document.querySelectorAll("[data-lang]").forEach((el) => {
-          el.style.display =
-            el.getAttribute("data-lang") === lang ? "" : "none";
-        });
-        // 同步 html lang 属性（SEO + 浏览器翻译）
-        document.documentElement.lang = lang;
+  </script>
+  <script>
+    // 更新页面显示语言
+    function updateLang(lang) {
+      // 切换显示内容
+      document.querySelectorAll("[data-lang]").forEach((el) => {
+        el.style.display =
+          el.getAttribute("data-lang") === lang ? "" : "none";
+      });
+      // 同步 html lang 属性（SEO + 浏览器翻译）
+      document.documentElement.lang = lang;
+    }
+
+    // 用户点击切换语言
+    function setLang(lang) {
+      localStorage.setItem("lang", lang);
+      updateLang(lang);
+    }
+
+    // 自动检测语言
+    async function detectLang() {
+      const savedLang = localStorage.getItem("lang");
+      if (savedLang) {
+        updateLang(savedLang);
+        return;
       }
 
-      // 用户点击切换语言
-      function setLang(lang) {
-        localStorage.setItem("lang", lang);
+      try {
+        // 调用免费 IP API 获取国家信息
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+
+        // 如果在中国显示中文，否则显示英文
+        const lang = data.country === "CN" ? "zh" : "en";
+
         updateLang(lang);
+      } catch (err) {
+        // 出错默认英文
+        console.error("IP API 检测失败，默认英文", err);
+        updateLang("en");
       }
+    }
 
-      // 自动检测语言
-      async function detectLang() {
-        const savedLang = localStorage.getItem("lang");
-        if (savedLang) {
-          updateLang(savedLang);
-          return;
-        }
+    // 页面加载立即检测
+    detectLang();
+  </script>
+</body>
 
-        try {
-          // 调用免费 IP API 获取国家信息
-          const res = await fetch("https://ipapi.co/json/");
-          const data = await res.json();
-
-          // 如果在中国显示中文，否则显示英文
-          const lang = data.country === "CN" ? "zh" : "en";
-
-          updateLang(lang);
-        } catch (err) {
-          // 出错默认英文
-          console.error("IP API 检测失败，默认英文", err);
-          updateLang("en");
-        }
-      }
-
-      // 页面加载立即检测
-      detectLang();
-    </script>
-  </body>
 </html>
