@@ -1,0 +1,87 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import AppCard from '../components/AppCard.astro';
+import FeaturedAppShowcase from '../components/FeaturedAppShowcase.astro';
+import { apps } from '../data/apps';
+
+const featured = apps.filter((app) => app.category === 'featured');
+const more = apps.filter((app) => app.category === 'more');
+const practice = apps.filter((app) => app.category === 'practice');
+---
+
+<SiteLayout title="MichaelDev — Small Apps That Feel Useful">
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Independent apps by Yang Xuehui</p>
+      <h1>Small apps that feel useful</h1>
+      <p class="hero__copy">
+        MichaelDev is a personal software brand focused on useful native-feeling tools:
+        PPT-to-video workflows, text-to-speech utilities, context-menu enhancements, and quiet apps for daily practice.
+        The productivity apps are moving toward a cross-platform desktop workflow across macOS and Windows.
+      </p>
+      <div class="hero__actions">
+        <a class="button" href="#apps">View apps</a>
+        <a class="button button--secondary" href="/help/">Open Help Center</a>
+      </div>
+    </section>
+
+    <section class="principles" aria-label="Product principles">
+      <div>
+        <strong>Solve real problems</strong>
+        <span>Small ideas, clear value, simpler frequent actions.</span>
+      </div>
+      <div>
+        <strong>Local-first by default</strong>
+        <span>Keep user files, private materials, and daily work close to the device.</span>
+      </div>
+      <div>
+        <strong>Tested in daily use</strong>
+        <span>Used by the developer, then improved with user feedback.</span>
+      </div>
+    </section>
+
+    <section id="apps" class="section">
+      <div class="section__heading">
+        <p class="eyebrow">Featured Apps</p>
+        <h2>Focused tools for creators, teachers, and desktop power users</h2>
+      </div>
+      <div class="featured-app-list">
+        {featured.map((app, index) => <FeaturedAppShowcase app={app} locale="en" index={index} />)}
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="section__heading">
+        <p class="eyebrow">More Apps</p>
+        <h2>Small companions for learning and practice</h2>
+      </div>
+      <div class="app-grid">
+        {[...more, ...practice].map((app) => <AppCard app={app} locale="en" compact />)}
+      </div>
+    </section>
+
+    <section class="help-callout">
+      <div>
+        <p class="eyebrow">Help Center</p>
+        <h2>Guides, FAQs, and troubleshooting docs for every app</h2>
+      </div>
+      <a class="button" href="/help/">Browse docs</a>
+    </section>
+
+    <section class="split-section" id="about">
+      <div>
+        <p class="eyebrow">About MichaelDev</p>
+        <h2>An independent developer brand for self-used productivity and practice tools</h2>
+      </div>
+      <div>
+        <p>
+          MichaelDev is the home for apps built by Yang Xuehui. The focus is simple:
+          make tools that solve a specific problem, feel calm to use, and remain easy to maintain.
+        </p>
+        <p>
+          Users can learn what each app does and find guides and common questions here.
+        </p>
+      </div>
+    </section>
+  </main>
+</SiteLayout>

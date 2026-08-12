@@ -1,0 +1,120 @@
+---
+import type { AppInfo, Locale } from '../data/apps';
+
+type Props = {
+  app: AppInfo;
+  locale: Locale;
+  index: number;
+};
+
+const { app, locale, index } = Astro.props;
+const isZh = locale === 'zh';
+const appHref = isZh ? `/zh/apps/${app.slug}/` : `/apps/${app.slug}/`;
+const helpHref = app.help && isZh ? app.help.replace('/help/', '/zh/help/') : app.help;
+const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'App Store';
+const headlineMap: Record<string, Record<Locale, string>> = {
+  videohero: {
+    zh: 'PPT 变讲解视频',
+    en: 'Turn slides into narrated videos',
+  },
+  ttsmate: {
+    zh: '更顺手的文本转语音工具',
+    en: 'A smoother text-to-speech workflow',
+  },
+  rightclickmate: {
+    zh: '把高频操作放进右键菜单',
+    en: 'Put frequent actions in the context menu',
+  },
+};
+const visualStepsMap: Record<string, Record<Locale, string[]>> = {
+  videohero: {
+    zh: ['PPTX + PDF', '备注讲稿', 'AI 配音', '字幕 / SRT', 'MP4 视频'],
+    en: ['PPTX + PDF', 'Slide notes', 'AI voiceover', 'Subtitles / SRT', 'MP4 video'],
+  },
+  ttsmate: {
+    zh: ['文本项目', '选择音色', '发音字典', '对话拆分', '导出语音'],
+    en: ['Text project', 'Choose voice', 'Pronunciation dictionary', 'Dialogue split', 'Export audio'],
+  },
+  rightclickmate: {
+    zh: ['右键菜单', '新建文件', '复制路径', '批量处理', '图片工具'],
+    en: ['Context menu', 'New file', 'Copy path', 'Batch tools', 'Image utilities'],
+  },
+};
+const headline = headlineMap[app.slug]?.[locale] ?? app.tagline[locale];
+const visualSteps = visualStepsMap[app.slug]?.[locale] ?? app.features[locale].slice(0, 5);
+const stripFinalPeriod = (text: string) => text.replace(/[。.]$/, '');
+const showcaseImages = app.showcaseImages?.[locale] ?? [];
+---
+
+<article class:list={['featured-app', index % 2 === 1 && 'featured-app--reverse']}>
+  <div class="featured-app__content">
+    <div class="featured-app__identity">
+      {app.icon ? <img class="featured-app__icon" src={app.icon} alt={`${app.name} icon`} /> : <span class="app-card__fallback">{app.name.slice(0, 1)}</span>}
+      <div>
+        <p class="eyebrow">{isZh ? '主推效率工具' : 'Featured productivity app'}</p>
+        <h3>{app.name}</h3>
+      </div>
+    </div>
+
+    <h2>{stripFinalPeriod(headline)}</h2>
+    <p class="featured-app__summary">{app.summary[locale]}</p>
+
+    <div class="platforms">
+      {app.platforms.map((item) => <span>{item}</span>)}
+    </div>
+
+    <div class="featured-app__actions">
+      <a class="button" href={appHref}>{isZh ? '查看介绍' : 'Learn more'}</a>
+      {app.appStore && (
+        <a
+          class="button button--secondary button--icon"
+          href={app.appStore}
+          target="_blank"
+          rel="noopener"
+          aria-label={appleStoreLabel}
+          title={appleStoreLabel}
+        >
+          
+        </a>
+      )}
+      {app.microsoftStore && (
+        <a
+          class="button button--secondary button--icon"
+          href={app.microsoftStore}
+          target="_blank"
+          rel="noopener"
+          aria-label="Microsoft Store"
+          title="Microsoft Store"
+        >
+          ⊞
+        </a>
+      )}
+      {helpHref && <a class="button button--secondary" href={helpHref}>{isZh ? '帮助' : 'Help'}</a>}
+    </div>
+  </div>
+
+  <div class="featured-app__visual" aria-hidden="true">
+    {showcaseImages.length ? (
+      <div class="featured-app__carousel">
+        {showcaseImages.map((image, imageIndex) => (
+          <img src={image} alt="" style={`--slide-index: ${imageIndex}`} />
+        ))}
+      </div>
+    ) : (
+      <>
+        <div class="featured-app__flow-card">
+          <strong>{app.name}</strong>
+          <span>{isZh ? '核心工作流' : 'Core workflow'}</span>
+        </div>
+        <div class="featured-app__flow-steps">
+          {visualSteps.map((step, stepIndex) => (
+            <>
+              <span>{step}</span>
+              {stepIndex < visualSteps.length - 1 && <i>→</i>}
+            </>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+</article>

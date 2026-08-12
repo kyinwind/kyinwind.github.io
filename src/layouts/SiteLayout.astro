@@ -1,0 +1,56 @@
+---
+import '../styles/site.css';
+
+type Props = {
+  title?: string;
+  description?: string;
+  locale?: 'en' | 'zh';
+};
+
+const {
+  title = 'MichaelDev',
+  description = 'Small, practical apps for desktop, mobile, and everyday workflows.',
+  locale = 'en',
+} = Astro.props;
+
+const isZh = locale === 'zh';
+const altHref = isZh ? '/' : '/zh/';
+const altLabel = isZh ? 'EN' : '中文';
+const helpHref = isZh ? '/zh/help/' : '/help/';
+const contactHref = isZh ? '/zh/contact/' : '/contact/';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href={isZh ? '/zh/' : '/'} aria-label="MichaelDev home">
+        <span class="brand-mark">M</span>
+        <span>MichaelDev</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href={isZh ? '/zh/#apps' : '/#apps'}>{isZh ? '应用' : 'Apps'}</a>
+        <a href={helpHref}>{isZh ? '帮助中心' : 'Help Center'}</a>
+        <a href={isZh ? '/zh/#about' : '/#about'}>{isZh ? '关于' : 'About'}</a>
+        <a href={contactHref}>{isZh ? '联系' : 'Contact'}</a>
+        <a href={altHref}>{altLabel}</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="footer">
+      <p>© 2026 MichaelDev · {isZh ? '杨学辉的个人应用作品集' : 'Independent apps by Yang Xuehui'}</p>
+      <p class="footer-links">
+        <a href="https://github.com/kyinwind" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:yangxuehui@outlook.com">Email</a>
+        <a href={contactHref}>{isZh ? '联系方式' : 'Contact'}</a>
+        <a href={helpHref}>{isZh ? '帮助中心' : 'Help Center'}</a>
+      </p>
+    </footer>
+  </body>
+</html>

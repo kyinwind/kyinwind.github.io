@@ -1,0 +1,57 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="联系方式 — MichaelDev"
+  description="通过邮箱、QQ、钉钉或 Discord 反馈 MichaelDev App 的问题和建议。"
+  locale="zh"
+>
+  <main>
+    <section class="contact-hero">
+      <p class="eyebrow">联系方式</p>
+      <h1>反馈与技术支持</h1>
+      <p class="hero__copy">
+        如果你在使用 MichaelDev 的 App 时遇到问题，或者有功能建议，可以通过下面这些方式联系我。
+      </p>
+    </section>
+
+    <section class="contact-grid" aria-label="联系方式">
+      <article class="contact-card">
+        <span class="contact-card__icon">✉</span>
+        <div>
+          <h2>邮箱</h2>
+          <p>适合发送截图、问题描述、示例文件和比较详细的反馈。</p>
+          <a class="contact-card__link" href="mailto:yangxuehui@outlook.com">yangxuehui@outlook.com</a>
+        </div>
+      </article>
+
+      <article class="contact-card">
+        <span class="contact-card__icon">Q</span>
+        <div>
+          <h2>QQ</h2>
+          <p>适合中文用户快速沟通和反馈问题。</p>
+          <p class="contact-card__value">361794868</p>
+        </div>
+      </article>
+
+      <article class="contact-card">
+        <span class="contact-card__icon">钉</span>
+        <div>
+          <h2>钉钉反馈</h2>
+          <p>部分 App 内已经支持向钉钉发送反馈消息。网页端后续可以补充公开联系入口。</p>
+          <p class="contact-card__value">可在支持的 App 内使用</p>
+        </div>
+      </article>
+
+      <article class="contact-card">
+        <span class="contact-card__icon">D</span>
+        <div>
+          <h2>Discord 反馈</h2>
+          <p>部分 App 内已经支持向 Discord 发送反馈消息。后续可以在这里补充服务器邀请链接。</p>
+          <p class="contact-card__value">等待补充邀请链接</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</SiteLayout>

@@ -1,0 +1,68 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { apps, getApp } from '../../../data/apps';
+
+export function getStaticPaths() {
+  return apps.map((app) => ({ params: { slug: app.slug } }));
+}
+
+const app = getApp(Astro.params.slug!);
+if (!app) throw new Error('App not found');
+const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'App Store';
+---
+
+<SiteLayout title={`${app.name} — MichaelDev`} description={app.summary.zh} locale="zh">
+  <main>
+    <section class="product-hero">
+      <div class="product-hero__icon-wrap">
+        {app.icon ? <img class="product-icon" src={app.icon} alt={`${app.name} 图标`} /> : <span>{app.name.slice(0, 1)}</span>}
+      </div>
+      <div>
+        <p class="eyebrow">MichaelDev 应用</p>
+        <h1>{app.name}</h1>
+        <p class="hero__copy">{app.tagline.zh}</p>
+        <p>{app.summary.zh}</p>
+        <div class="platforms">
+          {app.platforms.map((item) => <span>{item}</span>)}
+        </div>
+        <div class="hero__actions">
+          {app.appStore && (
+            <a
+              class="button button--icon"
+              href={app.appStore}
+              target="_blank"
+              rel="noopener"
+              aria-label={appleStoreLabel}
+              title={appleStoreLabel}
+            >
+              
+            </a>
+          )}
+          {app.microsoftStore && (
+            <a
+              class="button button--secondary button--icon"
+              href={app.microsoftStore}
+              target="_blank"
+              rel="noopener"
+              aria-label="Microsoft Store"
+              title="Microsoft Store"
+            >
+              ⊞
+            </a>
+          )}
+          {app.help && <a class="button button--secondary" href={app.help.replace('/help/', '/zh/help/')}>帮助中心</a>}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__heading">
+        <p class="eyebrow">功能亮点</p>
+        <h2>它能帮你做什么</h2>
+      </div>
+      <div class="feature-grid">
+        {app.features.zh.map((feature) => <div class="feature-card">{feature}</div>)}
+      </div>
+    </section>
+  </main>
+</SiteLayout>

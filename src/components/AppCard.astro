@@ -1,0 +1,56 @@
+---
+import type { AppInfo, Locale } from '../data/apps';
+
+type Props = {
+  app: AppInfo;
+  locale: Locale;
+  compact?: boolean;
+};
+
+const { app, locale, compact = false } = Astro.props;
+const appHref = locale === 'zh' ? `/zh/apps/${app.slug}/` : `/apps/${app.slug}/`;
+const helpHref = app.help && locale === 'zh' ? app.help.replace('/help/', '/zh/help/') : app.help;
+const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'App Store';
+---
+
+<article class:list={['app-card', compact && 'app-card--compact']}>
+  <a class="app-card__main" href={appHref} aria-label={`${app.name} details`}>
+    {app.icon ? <img class="app-card__icon" src={app.icon} alt={`${app.name} icon`} /> : <div class="app-card__fallback">{app.fallbackIcon ?? app.name.slice(0, 1)}</div>}
+    <div>
+      <h3>{app.name}</h3>
+      <p>{app.tagline[locale]}</p>
+    </div>
+  </a>
+  <div class="platforms" aria-label="Platforms">
+    {app.platforms.map((item) => <span>{item}</span>)}
+  </div>
+  {!compact && <p class="app-card__summary">{app.summary[locale]}</p>}
+  <div class="app-card__actions">
+    <a class="button button--secondary" href={appHref}>{locale === 'zh' ? '查看介绍' : 'Learn more'}</a>
+    {app.appStore && (
+      <a
+        class="button button--ghost button--icon"
+        href={app.appStore}
+        target="_blank"
+        rel="noopener"
+        aria-label={appleStoreLabel}
+        title={appleStoreLabel}
+      >
+        
+      </a>
+    )}
+    {app.microsoftStore && (
+      <a
+        class="button button--ghost button--icon"
+        href={app.microsoftStore}
+        target="_blank"
+        rel="noopener"
+        aria-label="Microsoft Store"
+        title="Microsoft Store"
+      >
+        ⊞
+      </a>
+    )}
+    {helpHref && <a class="button button--ghost" href={helpHref}>{locale === 'zh' ? '帮助' : 'Help'}</a>}
+  </div>
+</article>

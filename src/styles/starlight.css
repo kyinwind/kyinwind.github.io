@@ -1,0 +1,9 @@
+:root {
+  --sl-color-accent-low: #f4ede3;
+  --sl-color-accent: #a66a3a;
+  --sl-color-accent-high: #563018;
+}
+
+.site-title {
+  font-weight: 800;
+}

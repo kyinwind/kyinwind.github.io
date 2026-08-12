@@ -1,0 +1,85 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import AppCard from '../../components/AppCard.astro';
+import FeaturedAppShowcase from '../../components/FeaturedAppShowcase.astro';
+import { apps } from '../../data/apps';
+
+const featured = apps.filter((app) => app.category === 'featured');
+const more = apps.filter((app) => app.category === 'more');
+const practice = apps.filter((app) => app.category === 'practice');
+---
+
+<SiteLayout title="MichaelDev — 杨学辉的个人应用作品集" description="做一些真正顺手的小工具" locale="zh">
+  <main>
+    <section class="hero">
+      <p class="eyebrow">杨学辉的个人应用作品集</p>
+      <h1>做一些真正顺手的小工具</h1>
+      <p class="hero__copy">
+        MichaelDev 是我的个人软件品牌，主要收集我做的实用工具：PPT 转讲解视频、文本转语音、右键菜单增强，以及一些面向日常练习的小工具。
+        其中几个偏商业化的效率工具会逐步走向跨平台桌面工作流，当前重点覆盖 macOS 和 Windows。
+      </p>
+      <div class="hero__actions">
+        <a class="button" href="#apps">查看应用</a>
+        <a class="button button--secondary" href="/zh/help/">打开帮助中心</a>
+      </div>
+    </section>
+
+    <section class="principles" aria-label="产品原则">
+      <div>
+        <strong>解决真实问题</strong>
+        <span>小想法，清楚的价值，把高频操作变简单。</span>
+      </div>
+      <div>
+        <strong>默认本地优先</strong>
+        <span>尽量让文件、隐私材料和日常工作留在自己的设备上。</span>
+      </div>
+      <div>
+        <strong>经过检验的顺手设计</strong>
+        <span>作者日常使用，也持续根据用户反馈改进。</span>
+      </div>
+    </section>
+
+    <section id="apps" class="section">
+      <div class="section__heading">
+        <p class="eyebrow">主推应用</p>
+        <h2>面向创作者、老师和桌面端高频用户的效率工具</h2>
+      </div>
+      <div class="featured-app-list">
+        {featured.map((app, index) => <FeaturedAppShowcase app={app} locale="zh" index={index} />)}
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="section__heading">
+        <p class="eyebrow">更多应用</p>
+        <h2>学习、修行相关的小工具</h2>
+      </div>
+      <div class="app-grid">
+        {[...more, ...practice].map((app) => <AppCard app={app} locale="zh" compact />)}
+      </div>
+    </section>
+
+    <section class="help-callout">
+      <div>
+        <p class="eyebrow">帮助中心</p>
+        <h2>每个 App 的说明、FAQ 和故障排查文档</h2>
+      </div>
+      <a class="button" href="/zh/help/">浏览文档</a>
+    </section>
+
+    <section class="split-section" id="about">
+      <div>
+        <p class="eyebrow">关于 MichaelDev</p>
+        <h2>这是一个独立开发者品牌，汇总开发者自用的提高效率的小工具以及修行工具</h2>
+      </div>
+      <div>
+        <p>
+          MichaelDev 用来收集杨学辉开发的应用。目标很简单：做解决具体问题、使用起来安静、后续也容易维护的小工具。
+        </p>
+        <p>
+          用户可以在这里了解每个 App，也可以直接查看使用说明和常见问题。
+        </p>
+      </div>
+    </section>
+  </main>
+</SiteLayout>
