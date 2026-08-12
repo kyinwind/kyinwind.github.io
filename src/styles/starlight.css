@@ -1,9 +1,25 @@
 :root {
-  --sl-color-accent-low: #f4ede3;
-  --sl-color-accent: #a66a3a;
-  --sl-color-accent-high: #563018;
+  --sl-color-accent-low: #dbeafe;
+  --sl-color-accent: #2563eb;
+  --sl-color-accent-high: #1e3a8a;
 }
 
 .site-title {
   font-weight: 800;
+}
+
+.sl-markdown-content a,
+.right-sidebar a {
+  color: #2563eb;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #172554;
+  --sl-color-accent: #60a5fa;
+  --sl-color-accent-high: #bfdbfe;
+}
+
+:root[data-theme='dark'] .sl-markdown-content a,
+:root[data-theme='dark'] .right-sidebar a {
+  color: #60a5fa;
 }

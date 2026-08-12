@@ -1,14 +1,15 @@
 :root {
-  --bg: #faf9f5;
+  --bg: #f8fafc;
   --panel: #ffffff;
-  --panel-soft: #f4ede3;
-  --text: #171717;
-  --muted: #6d6860;
-  --line: rgba(23, 23, 23, 0.085);
-  --accent: #a66a3a;
-  --accent-dark: #81512c;
-  --blue: #1677ff;
-  --shadow: 0 22px 70px rgba(56, 45, 34, 0.075);
+  --panel-soft: #eff6ff;
+  --text: #0f172a;
+  --muted: #475569;
+  --line: rgba(15, 23, 42, 0.1);
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --blue: #2563eb;
+  --cyan: #06b6d4;
+  --shadow: 0 22px 70px rgba(15, 23, 42, 0.075);
 }
 
 * {
@@ -19,8 +20,9 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(166, 106, 58, 0.08), transparent 32rem),
-    linear-gradient(180deg, #fffdf9 0%, var(--bg) 42%, #ffffff 100%);
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.09), transparent 32rem),
+    radial-gradient(circle at 100% 18%, rgba(6, 182, 212, 0.06), transparent 26rem),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 42%, #ffffff 100%);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
 }
 
@@ -37,7 +39,7 @@ a {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  background: rgba(255, 253, 249, 0.82);
+  background: rgba(255, 255, 255, 0.82);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
 }
@@ -57,8 +59,8 @@ a {
   place-items: center;
   color: white;
   border-radius: 0.8rem;
-  background: linear-gradient(135deg, #1d1d1f, #a66a3a);
-  box-shadow: 0 12px 24px rgba(166, 106, 58, 0.18);
+  background: linear-gradient(135deg, #0f172a, var(--accent));
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.2);
 }
 
 .nav {
@@ -255,7 +257,7 @@ p {
   padding: clamp(1.5rem, 4vw, 3.1rem);
   overflow: hidden;
   background:
-    radial-gradient(circle at 85% 12%, rgba(166, 106, 58, 0.12), transparent 18rem),
+    radial-gradient(circle at 85% 12%, rgba(37, 99, 235, 0.12), transparent 18rem),
     var(--panel);
   border: 1px solid var(--line);
   border-radius: 2.2rem;
@@ -331,7 +333,7 @@ p {
   border-radius: 1.8rem;
   background:
     radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.92), transparent 16rem),
-    linear-gradient(145deg, #f7f1e8, #ffffff);
+    linear-gradient(145deg, #eff6ff, #ffffff);
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
@@ -349,7 +351,7 @@ p {
   height: 9rem;
   top: 11%;
   right: 13%;
-  background: rgba(166, 106, 58, 0.12);
+  background: rgba(6, 182, 212, 0.13);
 }
 
 .featured-app__visual::after {
@@ -494,7 +496,7 @@ p {
   place-items: center;
   color: white;
   border-radius: 1.25rem;
-  background: linear-gradient(135deg, #1d1d1f, #a66a3a);
+  background: linear-gradient(135deg, #0f172a, var(--accent));
   font-size: 1.6rem;
   font-weight: 900;
 }
@@ -544,7 +546,7 @@ p {
   grid-template-columns: 1fr auto;
   align-items: center;
   margin-bottom: 5rem;
-  background: linear-gradient(135deg, #1d1d1f, #2f2b27);
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
 }
 
 .help-callout h2,
@@ -633,7 +635,7 @@ p {
   height: 2.6rem;
   place-items: center;
   color: white;
-  background: linear-gradient(135deg, #1d1d1f, var(--accent));
+  background: linear-gradient(135deg, #0f172a, var(--accent));
   border-radius: 0.85rem;
   font-weight: 900;
 }
