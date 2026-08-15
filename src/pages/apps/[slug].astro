@@ -8,7 +8,7 @@ export function getStaticPaths() {
 
 const app = getApp(Astro.params.slug!);
 if (!app) throw new Error('App not found');
-const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'View on App Store';
+const appleStoreLabel = app.platforms.includes('macOS') ? 'Mac App Store' : 'View on App Store';
 ---
 
 <SiteLayout title={`${app.name} — MichaelDev`} description={app.summary.en}>
@@ -48,6 +48,18 @@ const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'View on App Stor
               title="Microsoft Store"
             >
               ⊞
+            </a>
+          )}
+          {app.appGallery && (
+            <a
+              class="button button--secondary button--icon"
+              href={app.appGallery}
+              target="_blank"
+              rel="noopener"
+              aria-label="Huawei AppGallery"
+              title="Huawei AppGallery"
+            >
+              H
             </a>
           )}
           {app.help && <a class="button button--secondary" href={app.help}>Help Center</a>}

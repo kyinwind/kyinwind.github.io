@@ -55,7 +55,7 @@ const practice = apps.filter((app) => app.category === 'practice');
         <p class="eyebrow">More Apps</p>
         <h2>Small companions for learning and practice</h2>
       </div>
-      <div class="app-grid">
+      <div class="app-grid app-grid--companions">
         {[...more, ...practice].map((app) => <AppCard app={app} locale="en" compact />)}
       </div>
     </section>

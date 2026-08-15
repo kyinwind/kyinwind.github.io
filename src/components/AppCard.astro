@@ -10,7 +10,12 @@ type Props = {
 const { app, locale, compact = false } = Astro.props;
 const appHref = locale === 'zh' ? `/zh/apps/${app.slug}/` : `/apps/${app.slug}/`;
 const helpHref = app.help && locale === 'zh' ? app.help.replace('/help/', '/zh/help/') : app.help;
-const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'App Store';
+const appleStoreLabel = app.platforms.includes('macOS') ? 'Mac App Store' : 'App Store';
+const additionalStores = [
+  app.microsoftStore && { href: app.microsoftStore, label: 'Microsoft Store', icon: '⊞' },
+  app.appGallery && { href: app.appGallery, label: 'Huawei AppGallery', icon: 'H' },
+].filter(Boolean) as { href: string; label: string; icon: string }[];
+const showStoreMenu = additionalStores.length > 1;
 ---
 
 <article class:list={['app-card', compact && 'app-card--compact']}>
@@ -39,17 +44,33 @@ const appleStoreLabel = app.microsoftStore ? 'Mac App Store' : 'App Store';
         
       </a>
     )}
-    {app.microsoftStore && (
+    {additionalStores.length === 1 && (
       <a
         class="button button--ghost button--icon"
-        href={app.microsoftStore}
+        href={additionalStores[0].href}
         target="_blank"
         rel="noopener"
-        aria-label="Microsoft Store"
-        title="Microsoft Store"
+        aria-label={additionalStores[0].label}
+        title={additionalStores[0].label}
       >
-        ⊞
+        {additionalStores[0].icon}
       </a>
+    )}
+    {showStoreMenu && (
+      <details class="store-menu">
+        <summary class="button button--ghost button--icon" title={locale === 'zh' ? '更多下载平台' : 'More download platforms'}>
+          <span aria-hidden="true">•••</span>
+          <span class="visually-hidden">{locale === 'zh' ? '更多下载平台' : 'More download platforms'}</span>
+        </summary>
+        <div class="store-menu__panel">
+          {additionalStores.map((store) => (
+            <a href={store.href} target="_blank" rel="noopener">
+              <span aria-hidden="true">{store.icon}</span>
+              {store.label}
+            </a>
+          ))}
+        </div>
+      </details>
     )}
     {helpHref && <a class="button button--ghost" href={helpHref}>{locale === 'zh' ? '帮助' : 'Help'}</a>}
   </div>

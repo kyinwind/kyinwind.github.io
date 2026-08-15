@@ -9,6 +9,7 @@ export type AppInfo = {
   fallbackIcon?: string;
   appStore?: string;
   microsoftStore?: string;
+  appGallery?: string;
   help?: string;
   showcaseImages?: Partial<Record<Locale, string[]>>;
   tagline: Record<Locale, string>;
@@ -208,10 +209,11 @@ export const apps: AppInfo[] = [
     slug: 'songjing',
     name: '诵经助手',
     category: 'practice',
-    platforms: ['iOS', 'Windows'],
+    platforms: ['iOS', 'Windows', 'HarmonyOS'],
     icon: '/images/SongJing.png',
     appStore: 'https://apps.apple.com/app/6448427701',
     microsoftStore: 'https://apps.microsoft.com/detail/9pbswswjfgvm?hl=zh-CN&gl=CN',
+    appGallery: 'https://appgallery.huawei.com/app/detail?id=com.michaeldev.gongke_harmony',
     tagline: {
       en: 'A chanting companion with a focused reading experience.',
       zh: '专注诵经体验的辅助工具。',
