@@ -12,6 +12,7 @@ const videoHeroItems = [
 
 const rightClickMateItems = [
   { label: 'Overview', slug: 'help/rightclickmate' },
+  { label: 'Privacy Policy', slug: 'help/rightclickmate/privacy' },
   { label: 'Feature Overview', slug: 'help/rightclickmate/feature-overview' },
   { label: 'General Settings', slug: 'help/rightclickmate/general-settings' },
   { label: 'Favorite Folders', slug: 'help/rightclickmate/favorite-folders' },
@@ -33,6 +34,7 @@ const rightClickMateItems = [
 
 const ttsMateItems = [
   { label: 'Overview', slug: 'help/ttsmate' },
+  { label: 'Privacy Policy', slug: 'help/ttsmate/privacy' },
   { label: 'Main Interface', slug: 'help/ttsmate/main-interface' },
   { label: 'TTS Settings', slug: 'help/ttsmate/tts-settings' },
   { label: 'Pronunciation Dictionary', slug: 'help/ttsmate/pronunciation-dictionary' },
@@ -51,6 +53,7 @@ const zhVideoHeroItems = [
 
 const zhRightClickMateItems = [
   { label: '首页', slug: 'zh/help/rightclickmate' },
+  { label: '隐私政策', slug: 'zh/help/rightclickmate/privacy' },
   { label: '功能介绍一页纸', slug: 'zh/help/rightclickmate/feature-overview' },
   { label: '通用设置', slug: 'zh/help/rightclickmate/general-settings' },
   { label: '常用目录', slug: 'zh/help/rightclickmate/favorite-folders' },
@@ -72,6 +75,7 @@ const zhRightClickMateItems = [
 
 const zhTtsMateItems = [
   { label: '首页', slug: 'zh/help/ttsmate' },
+  { label: '隐私政策', slug: 'zh/help/ttsmate/privacy' },
   { label: '主要界面', slug: 'zh/help/ttsmate/main-interface' },
   { label: 'TTS 设置', slug: 'zh/help/ttsmate/tts-settings' },
   { label: '发音字典', slug: 'zh/help/ttsmate/pronunciation-dictionary' },
