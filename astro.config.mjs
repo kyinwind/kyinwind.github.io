@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 
 const videoHeroItems = [
   { label: 'Introduction', slug: 'help/videohero' },
+  { label: 'Privacy Policy', slug: 'help/videohero/privacy' },
   { label: 'Settings', slug: 'help/videohero/settings' },
   { label: 'Talking-head Video Repair', slug: 'help/videohero/talking-head-video-repair' },
   { label: 'How to Import Models', slug: 'help/videohero/import-models' },
@@ -41,6 +42,7 @@ const ttsMateItems = [
 
 const zhVideoHeroItems = [
   { label: 'VideoHero 介绍', slug: 'zh/help/videohero' },
+  { label: '隐私政策', slug: 'zh/help/videohero/privacy' },
   { label: '设置页面', slug: 'zh/help/videohero/settings' },
   { label: '口播视频修复', slug: 'zh/help/videohero/talking-head-video-repair' },
   { label: '如何导入模型', slug: 'zh/help/videohero/import-models' },
